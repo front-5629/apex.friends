@@ -24,11 +24,24 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :absolute="!fixed" app :flex-direction="column">
-      <v-btn>HOME</v-btn>
-      <!-- <v-btn>検索</v-btn>  フッターボタンの配置から -->
-      <v-btn>投稿</v-btn>
+
+    <v-footer v-bind="localAttrs" :padless="padless">
+      <v-card flat tile width="100%" class="red lighten-1 text-center">
+        <v-card-text>
+          <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
+            <v-icon size="24px">{{ icon }}</v-icon>
+          </v-btn>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} —
+          <strong>@APEX FRIENDS</strong>
+        </v-card-text>
+      </v-card>
     </v-footer>
+    <!-- footerコピペの為 icon紐付け等行う -->
   </v-app>
 </template>
 
