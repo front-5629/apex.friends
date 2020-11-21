@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar color="red darken-3" :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-spacer />
       <v-toolbar-title v-text="title" />
@@ -25,23 +25,16 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-footer v-bind="localAttrs" :padless="padless">
-      <v-card flat tile width="100%" class="red lighten-1 text-center">
-        <v-card-text>
-          <v-btn v-for="icon in icons" :key="icon" class="mx-4" icon>
-            <v-icon size="24px">{{ icon }}</v-icon>
-          </v-btn>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text class="white--text">
+    <v-footer color="red darken-3" padless>
+      <v-row justify="center" no-gutters>
+        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn>
+        <v-col class="red darken-3 py-4 text-center white--text" cols="12">
           {{ new Date().getFullYear() }} —
-          <strong>@APEX FRIENDS</strong>
-        </v-card-text>
-      </v-card>
+          <strong>@APEX FRIENDS</strong>
+        </v-col>
+      </v-row>
     </v-footer>
-    <!-- footerコピペの為 icon紐付け等行う -->
+    <!-- footerコピペの為 links紐付け等行う -->
   </v-app>
 </template>
 
