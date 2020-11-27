@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\models\Person;
 
 class PeopleTableSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class PeopleTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'psid' => 'yamada',
+            'psid' => 'yahoo',
             'headware' => 'pc',
             'mainpic' => 'octane',
             'secondpic' => 'mirage',
@@ -24,10 +25,11 @@ class PeopleTableSeeder extends Seeder
             'message' => 'ランクに行く仲間募集中です！！',
             'email' => 'aaa@gmail.com',
         ];
-        DB::table('people')->insert($param);
+        $person = new Person;
+        $person->fill($param)->save();
 
         $param = [
-            'psid' => 'tanaka',
+            'psid' => 'google',
             'headware' => 'ps4',
             'mainpic' => 'mirage',
             'secondpic' => 'octane',
@@ -36,10 +38,11 @@ class PeopleTableSeeder extends Seeder
             'message' => '雰囲気良くデキる人募集',
             'email' => 'bbb@gmail.com',
         ];
-        DB::table('people')->insert($param);
+        $person = new Person;
+        $person->fill($param)->save();
         
         $param = [
-            'psid' => 'sato',
+            'psid' => 'gmo',
             'headware' => 'pc',
             'mainpic' => 'mirage',
             'secondpic' => 'crypto',
@@ -48,6 +51,8 @@ class PeopleTableSeeder extends Seeder
             'message' => '初心者ですがよろしくおねがいします',
             'email' => 'ccc@gmail.com',
         ];
-        DB::table('people')->insert($param);
+        $person = new Person;
+        $person->fill($param)->save();
     }
 }
+// 本にそってmodelの作成→sedder書き直しでrestfullapi実装
