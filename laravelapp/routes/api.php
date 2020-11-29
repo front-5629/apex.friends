@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('people', 'PeopleController', ['only' =>[index]]);
+Route::resource('/people', 'App\Http\Controllers\PersonController');
