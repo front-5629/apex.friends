@@ -26,42 +26,37 @@
     </v-navigation-drawer>
 
     <v-footer color="red darken-3" padless>
-      <v-row justify="center" no-gutters>
-        <v-btn v-for="link in links" :key="link" color="white" text rounded class="my-2">{{ link }}</v-btn>
-        <v-col class="red darken-3 py-4 text-center white--text" cols="12">
+      <v-row justify="space-around" no-gutters>
+        <v-btn 
+          v-for="icon in icons" 
+          :key="icon" 
+          class="my-1"
+          icon
+        >
+          <v-icon size="24px">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
+        <v-col class="red darken-3 text-center white--text" cols="12">
           {{ new Date().getFullYear() }} —
           <strong>@APEX FRIENDS</strong>
         </v-col>
       </v-row>
     </v-footer>
-    <!-- footerコピペの為 links紐付け等行う -->
   </v-app>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      // clipped: false,
-      // drawer: false,
-      // fixed: false,
-      // items: [
-      //   {
-      //     icon: "mdi-apps",
-      //     title: "Welcome",
-      //     to: "/"
-      //   },
-      //   {
-      //     icon: "mdi-chart-bubble",
-      //     title: "Inspire",
-      //     to: "/inspire"
-      //   }
-      // ],
-      // miniVariant: false,
-      // right: true,
-      // rightDrawer: false,
-      title: "APEX FRIENDS"
-    };
-  }
+  data: ()=>({
+    icons: [
+      'mdi-home',
+      'mdi-magnify',
+      'mdi-pencil-plus',
+      // 'mdi-microphone',
+      // 'mdi-microphone-off',
+    ],
+    title: 'APEX FRIENDS',
+  }),
 };
 </script>
