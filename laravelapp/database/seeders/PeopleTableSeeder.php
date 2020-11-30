@@ -55,4 +55,3 @@ class PeopleTableSeeder extends Seeder
         $person->fill($param)->save();
     }
 }
-// 本にそってmodelの作成→sedder書き直しでrestfullapi実装
