@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\models\Post;
 
 class PostsTableSeeder extends Seeder
 {
@@ -14,16 +15,17 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'psid' => 'yahoo',
+            'people_id' => '4',
             'headware' => 'pc',
             'mainpic' => 'octane',
             'secondpic' => 'mirage',
             'thirdpic' => 'crypto',
-            'rank' => 'dia',
-            'message' => 'ランクに行く仲間募集中です！！',
-            'email' => 'aaa@gmail.com',
+            'require_rank' => 'dia',
+            'voice_chat' => '1',
+            'message' => '固定でマスター目指しましょう！',
         ];
-        $person = new Person;
-        $person->fill($param)->save();
+        $post = new Post;
+        $post->fill($param)->save();
     }
 }
+
