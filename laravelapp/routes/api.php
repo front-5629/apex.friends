@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('/people', 'App\Http\Controllers\PersonController');
+
+Route::resource('/posts', 'App\Http\Controllers\PostController');
+
+Route::resource('/clubs', 'App\Http\Controllers\ClubsController');
