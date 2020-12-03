@@ -1,11 +1,17 @@
 <template>
   <v-app>
     <v-app-bar color="red darken-3" :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-btn class="">
+        <v-icon>mdi-login-variant</v-icon>
+      </v-btn>
       <v-spacer />
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title 
+        class="font-weight-bold"
+      >
+        APEX FRIENDS
+      </v-toolbar-title>
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn  right icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
@@ -14,14 +20,25 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>mdi-repeat</v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
+    <v-navigation-drawer v-model="rightDrawer" temporary fixed right>
+      <v-list nav>
+        <v-list-item-group
+          v-model="menuGroup"
+          active-class="red--text text--accent-4"
+          @click.native="right = !right"
+        >
+          <v-list-item>
+            <v-list-item-title>使い方</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>ヘルプ</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>お問い合わせ</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
 
@@ -56,7 +73,14 @@ export default {
       // 'mdi-microphone',
       // 'mdi-microphone-off',
     ],
-    title: 'APEX FRIENDS',
+    rightDrawer: false,
+    menuGroup: null,
   }),
+
+  wqtch:{
+    menuGroup(){
+      this.rightDrawer = false
+    },
+  },
 };
 </script>

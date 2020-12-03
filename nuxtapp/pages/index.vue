@@ -7,13 +7,9 @@
     >
       <v-card>
         <v-card-title>
-          {{ post.people_id }}
+          {{ post.psid }}
         </v-card-title>
         <v-card-text outlined>
-          <!-- <tr v-for="post in posts" :key="post.id">
-            <td>{{ post.headware }}</td>
-            <td>{{ post.message }}</td>
-          </tr> -->
         <v-chip-group
           column
         >
