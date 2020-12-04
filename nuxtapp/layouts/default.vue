@@ -1,13 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar color="red darken-3" :clipped-left="clipped" fixed app>
-      <v-btn class="">
+    <v-app-bar color="red darken-3" :clipped-left="clipped" app>
+      <v-btn icon>
         <v-icon>mdi-login-variant</v-icon>
       </v-btn>
       <v-spacer />
-      <v-toolbar-title 
-        class="font-weight-bold"
-      >
+      <v-toolbar-title class="font-weight-bold">
         APEX FRIENDS
       </v-toolbar-title>
       <v-spacer />
@@ -42,21 +40,25 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-footer color="red darken-3" padless>
-      <v-row justify="space-around" no-gutters>
-        <v-btn 
-          v-for="icon in icons" 
-          :key="icon" 
-          class="my-1"
-          icon
-        >
-          <v-icon size="24px">
-            {{ icon }}
-          </v-icon>
-        </v-btn>
-        <v-col class="red darken-3 text-center white--text" cols="12">
-          {{ new Date().getFullYear() }} —
-          <strong>@APEX FRIENDS</strong>
+    <v-footer color="red darken-3" padless app>
+      <v-row justify="space-around" align="center" no-gutters>
+        <v-col cols="3">
+          <v-btn icon block to="/" nuxt @click="$vuetify.goTo(0)"> 
+            <v-icon size="24px">mdi-home</v-icon>
+          </v-btn>
+        </v-col>
+        <v-col cols="3">
+          <v-btn icon block nuxt to="/refine_search"> 
+            <v-icon size="24px">mdi-magnify</v-icon>
+          </v-btn>
+        </v-col>
+        <v-col cols="3">
+          <v-btn icon block> 
+            <v-icon size="24px">mdi-pencil-plus</v-icon>
+          </v-btn>
+        </v-col>
+        <v-col class="text-center white--text text-overline" cols="12">
+          {{ new Date().getFullYear() }} —@APEX FRIENDS
         </v-col>
       </v-row>
     </v-footer>
@@ -66,18 +68,18 @@
 <script>
 export default {
   data: ()=>({
-    icons: [
-      'mdi-home',
-      'mdi-magnify',
-      'mdi-pencil-plus',
-      // 'mdi-microphone',
-      // 'mdi-microphone-off',
-    ],
+    // icons: [
+    //   'mdi-home',
+    //   'mdi-magnify',
+    //   'mdi-pencil-plus',
+    //   'mdi-microphone',
+    //   'mdi-microphone-off',
+    // ],
     rightDrawer: false,
     menuGroup: null,
   }),
 
-  wqtch:{
+  watch:{
     menuGroup(){
       this.rightDrawer = false
     },
