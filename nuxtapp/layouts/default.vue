@@ -41,7 +41,7 @@
     </v-navigation-drawer>
 
     <v-footer color="red darken-3" padless app>
-      <v-row justify="space-around" align="center" no-gutters>
+      <v-row justify="space-around" align="center" >
         <v-col cols="3">
           <v-btn icon block to="/" nuxt @click="$vuetify.goTo(0)"> 
             <v-icon size="24px">mdi-home</v-icon>
@@ -57,9 +57,9 @@
             <v-icon size="24px">mdi-pencil-plus</v-icon>
           </v-btn>
         </v-col>
-        <v-col class="text-center white--text text-overline" cols="12">
+        <!-- <v-col class="text-center white--text text-overline" cols="12">
           {{ new Date().getFullYear() }} —@APEX FRIENDS
-        </v-col>
+        </v-col> -->
       </v-row>
     </v-footer>
   </v-app>
