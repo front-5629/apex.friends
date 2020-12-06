@@ -15,7 +15,7 @@
             <v-tab-item>
                 <v-card>
                 <v-card-text>
-                    <SearchPeople />
+                    <PostPeople />
                 </v-card-text>
                 </v-card>
             </v-tab-item>
@@ -23,7 +23,7 @@
             <v-tab-item>
                 <v-card>
                 <v-card-text>
-                    <SearchClubs />
+                    <PostClubs />
                 </v-card-text>
                 </v-card>
             </v-tab-item>
@@ -33,12 +33,12 @@
 </template>
 
 <script>
-  import SearchPeople from '~/components/SearchPeople.vue'
-  import SearchClubs from '~/components/SearchClubs.vue'
+  import PostPeople from '~/components/PostPeople.vue'
+  import PostClubs from '~/components/PostClubs.vue'
 
   export default {
     components: [
-        SearchPeople, SearchClubs,
+        PostPeople, PostClubs,
     ]
   }
 </script>

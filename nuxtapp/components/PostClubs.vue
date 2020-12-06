@@ -1,6 +1,6 @@
 <template>
   <v-row>  
-    <span  class="headline ml-5">フレンドを検索</span>
+    <span  class="headline ml-5">クラブ投稿</span>
     <v-container justify="center">
         <v-row>
             <v-col
@@ -19,7 +19,7 @@
             sm="6"
             >
             <v-select
-                :items="['ON', 'OFF']"
+                :items="['指定なし' ,'ON', 'OFF']"
                 label="ボイスチャット"
                 required
             ></v-select>
@@ -29,8 +29,8 @@
             sm="6"
             >
             <v-select
-                :items="['gold', 'plat4', 'plat3', 'dia4', 'dia3', 'dia2', 'master']"
-                label="ランク"
+                :items="['指定なし', 'gold', 'plat', 'dia', 'master']"
+                label="募集ランク"
                 required
             >
             </v-select>
@@ -43,16 +43,27 @@
             </v-col>
             <v-col
             cols="12"
-            sm="12"
+            sm="6"
             >
             <v-autocomplete
-                :items="['レイス', 'パスファインダー','ジブラルタル','ホライゾン','ライフライン',
-                         'バンガロール','コースティック','ブラッドハウンド','オクタン','ランパート',
-                         'ローバ','ミラージュ','クリプト','レヴナント','ワットソン']"
-                label="使用キャラクター"
+                :items="['1~10', '10~20', '20~30']"
+                label="メンバー数"
                 multiple
             >
             </v-autocomplete>
+            </v-col>
+            <v-col
+            cols="12"
+            sm="12"
+            >
+            <!-- text-fieldsのほうがいいかも -->
+            <v-textarea
+            counter
+            label="メッセージ（150文字）"
+            :rules="rules"
+            :value="value"
+            >
+            </v-textarea>
             </v-col>
         </v-row>
     </v-container>
@@ -74,3 +85,12 @@
     </v-btn>
   </v-row>
 </template>
+
+<script>
+  export default {
+    data: () => ({
+      rules: [v => v.length <= 150 || '150文字以上は投稿できません'],
+      value: '',
+    }),
+  }
+</script>

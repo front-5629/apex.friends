@@ -1,60 +1,26 @@
 <template>
-  <v-row justify="center">  
-    <span  class="headline">クラブを検索</span>
-    <v-container>
+  <v-row>  
+    <span  class="headline ml-5">フレンドを検索</span>
+    <v-container justify="center">
         <v-row>
             <v-col
             cols="12"
             sm="6"
-            md="4"
             >
-            <v-text-field
-                label="Legal first name*"
-                required
-            ></v-text-field>
-            </v-col>
-            <v-col
-            cols="12"
-            sm="6"
-            md="4"
+            <v-autocomplete
+                :items="['ps4', 'pc']"
+                label="ハードウェア"
+                multiple
             >
-            <v-text-field
-                label="Legal middle name"
-                hint="example of helper text only on focus"
-            ></v-text-field>
-            </v-col>
-            <v-col
-            cols="12"
-            sm="6"
-            md="4"
-            >
-            <v-text-field
-                label="Legal last name*"
-                hint="example of persistent helper text"
-                persistent-hint
-                required
-            ></v-text-field>
-            </v-col>
-            <v-col cols="12">
-            <v-text-field
-                label="Email*"
-                required
-            ></v-text-field>
-            </v-col>
-            <v-col cols="12">
-            <v-text-field
-                label="Password*"
-                type="password"
-                required
-            ></v-text-field>
+            </v-autocomplete>
             </v-col>
             <v-col
             cols="12"
             sm="6"
             >
             <v-select
-                :items="['0-17', '18-29', '30-54', '54+']"
-                label="Age*"
+                :items="['指定なし' ,'ON', 'OFF']"
+                label="ボイスチャット"
                 required
             ></v-select>
             </v-col>
@@ -62,15 +28,33 @@
             cols="12"
             sm="6"
             >
+            <v-select
+                :items="['指定なし', 'gold', 'plat', 'dia', 'master']"
+                label="募集ランク"
+                required
+            >
+            </v-select>
+            </v-col>
+            <v-col
+            cols="12"
+            sm="6"
+            >
+                <span>以上</span>
+            </v-col>
+            <v-col
+            cols="12"
+            sm="6"
+            >
             <v-autocomplete
-                :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                label="Interests"
+                :items="['1~10', '10~20', '20~30']"
+                label="メンバー数"
                 multiple
-            ></v-autocomplete>
+            >
+            </v-autocomplete>
             </v-col>
         </v-row>
     </v-container>
-    <small>*indicates required field</small>
+    <small>*追加してほしい項目等あれば、画面右上のメニューからお問い合わせ下さい</small>
     <v-spacer></v-spacer>
     <v-btn
     color="blue darken-1"
@@ -83,7 +67,6 @@
     <v-btn
     color="blue darken-1"
     text
-    @click="dialog = false"
     >
     検索
     </v-btn>

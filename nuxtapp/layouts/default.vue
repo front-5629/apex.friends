@@ -1,16 +1,16 @@
 <template>
   <v-app>
-    <v-app-bar color="red darken-3" :clipped-left="clipped" app>
+    <v-app-bar :clipped-left="clipped" app>
       <v-btn icon>
-        <v-icon>mdi-login-variant</v-icon>
+        <v-icon color="red">mdi-login-variant</v-icon>
       </v-btn>
       <v-spacer />
-      <v-toolbar-title class="font-weight-bold">
+      <v-toolbar-title class="red--text text--darken-1 font-weight-bold">
         APEX FRIENDS
       </v-toolbar-title>
       <v-spacer />
-      <v-btn  right icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
+      <v-btn  icon @click.stop="rightDrawer = !rightDrawer">
+        <v-icon color="red">mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -40,26 +40,23 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-footer color="red darken-3" padless app>
+    <v-footer padless app>
       <v-row justify="space-around" align="center" >
-        <v-col cols="3">
-          <v-btn icon block to="/" nuxt @click="$vuetify.goTo(0)"> 
+        <v-col cols="4">
+          <v-btn block depressed to="/" nuxt @click="$vuetify.goTo(0)"> 
             <v-icon size="24px">mdi-home</v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="3">
-          <v-btn icon block nuxt to="/refine_search"> 
+        <v-col cols="4">
+          <v-btn  block depressed nuxt to="/refine_search"> 
             <v-icon size="24px">mdi-magnify</v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="3">
-          <v-btn icon block> 
+        <v-col cols="4">
+          <v-btn  block depressed nuxt to="/post"> 
             <v-icon size="24px">mdi-pencil-plus</v-icon>
           </v-btn>
         </v-col>
-        <!-- <v-col class="text-center white--text text-overline" cols="12">
-          {{ new Date().getFullYear() }} —@APEX FRIENDS
-        </v-col> -->
       </v-row>
     </v-footer>
   </v-app>
