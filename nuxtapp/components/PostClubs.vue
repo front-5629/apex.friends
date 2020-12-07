@@ -7,22 +7,21 @@
             cols="12"
             sm="6"
             >
-            <v-autocomplete
-                :items="['ps4', 'pc']"
-                label="ハードウェア"
-                multiple
+            <v-text-field
+                label="クラブ名"
             >
-            </v-autocomplete>
+            </v-text-field>
             </v-col>
             <v-col
             cols="12"
             sm="6"
             >
-            <v-select
-                :items="['指定なし' ,'ON', 'OFF']"
-                label="ボイスチャット"
-                required
-            ></v-select>
+            <v-autocomplete
+                :items="['1~10', '10~20', '20~30']"
+                label="メンバー数"
+                multiple
+            >
+            </v-autocomplete>
             </v-col>
             <v-col
             cols="12"
@@ -46,11 +45,21 @@
             sm="6"
             >
             <v-autocomplete
-                :items="['1~10', '10~20', '20~30']"
-                label="メンバー数"
+                :items="['ps4', 'pc']"
+                label="ハードウェア"
                 multiple
             >
             </v-autocomplete>
+            </v-col>
+            <v-col
+            cols="12"
+            sm="6"
+            >
+            <v-select
+                :items="['指定なし' ,'ON', 'OFF']"
+                label="ボイスチャット"
+                required
+            ></v-select>
             </v-col>
             <v-col
             cols="12"

@@ -29,7 +29,7 @@
             sm="6"
             >
             <v-select
-                :items="['gold', 'plat4', 'plat3', 'dia4', 'dia3', 'dia2', 'master']"
+                :items="['silver', 'gold', 'plat4', 'plat3', 'dia4', 'dia3', 'dia2', 'master']"
                 label="ランク"
                 required
             >
@@ -49,7 +49,7 @@
                 :items="['レイス', 'パスファインダー','ジブラルタル','ホライゾン','ライフライン',
                          'バンガロール','コースティック','ブラッドハウンド','オクタン','ランパート',
                          'ローバ','ミラージュ','クリプト','レヴナント','ワットソン']"
-                label="使用キャラクター"
+                label="メイン使用キャラクター"
                 multiple
             >
             </v-autocomplete>
