@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::resource('/people', 'App\Http\Controllers\PersonController');
-
 Route::resource('/posts', 'App\Http\Controllers\PostController');
+Route::resource('/clubs', 'App\Http\Controllers\ClubController');
 
-Route::resource('/clubs', 'App\Http\Controllers\ClubsController');
+Route::post('/login', 'LoginController@Login');
+Route::post('/logout', 'LoginController@Logout');
+

@@ -36,7 +36,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $posts = new Post;
+        $form = $request->all();
+        unset($form['_token']);
+        $posts->fill($form)->save();
     }
 
     /**
@@ -47,7 +50,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // $items = Post::find($id);
+        // return $items->toArray();
     }
 
     /**
