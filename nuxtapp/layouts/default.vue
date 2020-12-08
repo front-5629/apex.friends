@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar :clipped-left="clipped" app>
-      <v-btn icon>
+      <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
       </v-btn>
       <v-spacer />

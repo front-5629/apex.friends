@@ -30,6 +30,9 @@
 
       </v-card>
     </v-col>
+    <v-btn @click="postPeople">
+      ボタン
+    </v-btn>
   </v-row>
 </template>
 
@@ -44,13 +47,48 @@ export default{
     }
   },
 
-  mounted: function() {
-    this.$axios
-      .$get('http://localhost:8000/api/posts')
-      .then(response => {
-        this.posts = response
-      })
+  beforeCreate:
+    function(){
+      this.$axios.$get('/sanctum/csrf-cookie').then(response => {
+        // ログイン処理…
+      });
+    },
 
-}};
+  mounted:
+    function() {
+      this.$axios
+        .$get('http://127.0.0.1:8000/api/posts')
+        .then(response => {
+          this.posts = response
+        })
+    },
+
+  methods: {
+    postPeople() {
+      let people = {
+        'people_id' : 3,
+        'headware' : 'ps4',
+        'mainpic' : 'オクタン',
+        'secondpic' : 'レイス',
+        'thirdpic' : 'コースティック',
+        'require_rank' : 'plat3',
+        'voice_chat' : 0,
+        'message' : '楽しもうや',
+        'psid' : 'yamaguchi'
+      }
+
+
+      this.$axios
+        .post('http://localhost:8000/api/posts', people)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch( error =>{
+          console.log("response error", error.response)
+        })
+    }
+  }
+
+};
 
 </script>

@@ -7,12 +7,12 @@
             cols="12"
             sm="6"
             >
-            <v-autocomplete
+            <v-select
                 :items="['ps4', 'pc']"
                 label="ハードウェア"
-                multiple
+                required
             >
-            </v-autocomplete>
+            </v-select>
             </v-col>
             <v-col
             cols="12"

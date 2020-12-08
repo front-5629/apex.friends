@@ -7,7 +7,6 @@
             <v-tab>
                 フレンド
             </v-tab>
-
             <v-tab>
                 クラブ
             </v-tab>
