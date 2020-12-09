@@ -22,6 +22,6 @@ Route::resource('/people', 'App\Http\Controllers\PersonController');
 Route::resource('/posts', 'App\Http\Controllers\PostController');
 Route::resource('/clubs', 'App\Http\Controllers\ClubController');
 
-Route::post('/login', 'LoginController@Login');
-Route::post('/logout', 'LoginController@Logout');
+Route::post('/login', 'LoginController@login');
+Route::post('/logout', 'LoginController@logout');
 

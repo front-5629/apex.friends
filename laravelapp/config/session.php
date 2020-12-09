@@ -157,6 +157,9 @@ return [
 
     'domain' => env('SESSION_DOMAIN', null),
 
+    // 'domain' => '.localhost',
+    //もしかしたらこれかもしれん
+
     /*
     |--------------------------------------------------------------------------
     | HTTPS Only Cookies
