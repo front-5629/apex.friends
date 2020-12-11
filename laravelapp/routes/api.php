@@ -15,9 +15,9 @@ use App\Http\Controllers\Api\Auth\LoginController;
 |
 */
 
-Route::prefix('auth')->group(function() {
-    Route::post('/login', [LoginController::class, 'login']);
-});
+// Route::prefix('auth')->group(function() {
+//     Route::post('/login', [LoginController::class, 'login']);
+// });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -29,4 +29,4 @@ Route::resource('/clubs', 'App\Http\Controllers\ClubController');
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
-
+//usersテーブルが怪しい

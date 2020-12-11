@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+// お試し
 
 class Kernel extends HttpKernel
 {
@@ -45,10 +47,7 @@ class Kernel extends HttpKernel
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            EnsureFrontendRequestsAreStateful::class,
-            'throttle:api',
-            // 'throttle:60,1',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // sanctum認証のミドルウェア追加設定。ログイン機能実装まで無効中
         ],
     ];
 

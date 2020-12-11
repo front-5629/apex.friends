@@ -15,7 +15,7 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Login successful'], 200);
+            return ['result' => true];
         }
         //404エラーのバリデーション
         throw ValidationException::withMessages([

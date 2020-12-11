@@ -156,8 +156,6 @@ return [
     */
 
     'domain' => env('SESSION_DOMAIN', null),
-
-    'domain' => '.localhost:3000',
     
 
     /*
