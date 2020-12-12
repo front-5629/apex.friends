@@ -47,13 +47,6 @@ export default{
     }
   },
 
-  beforeCreate:
-    function(){
-      this.$axios.$get('/sanctum/csrf-cookie').then(response => {
-        // ログイン処理…
-      });
-    },
-
   mounted:
     function() {
       this.$axios

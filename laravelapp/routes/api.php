@@ -29,4 +29,5 @@ Route::resource('/clubs', 'App\Http\Controllers\ClubController');
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
-//usersテーブルが怪しい
+
+Route::post('/register', 'App\Http\Controllers\RegisterController@register');

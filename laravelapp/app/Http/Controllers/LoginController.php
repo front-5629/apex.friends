@@ -10,16 +10,19 @@ class LoginController extends Controller
 {
     public function login(Request $request) {
         $credentials = $request->validate([
-            'email' => 'requied|email',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
         if(Auth::attempt($credentials)) {
-            return ['result' => true];
+            //ログイン成功時
+            $loggedIn =true;
+            $message = 'ログイン完了!!';
+            return response()-> json(['loggedIn'=> '$loggedIn', 'message'=> '$message']);
         }
-        //404エラーのバリデーション
+     
         throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect'],
+            'email' => ['入力された情報が間違っています'],
         ]);
     }
 

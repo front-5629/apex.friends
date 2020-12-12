@@ -15,6 +15,9 @@
             <v-btn @click="login">
                 ログイン
             </v-btn>
+            <v-btn to="/register" nuxt>
+                新規登録へ
+            </v-btn>
             
         </form>
         <v-col v-else>
@@ -31,32 +34,32 @@ const axios = require('axios');
 
 export default {
     data: {
-        loggedIn: false,
+        loggedIn: '',
         email: '',
-        password: ''
+        password: '',
+        result: '',
+        message:''
     },
 
     methods: {
         login(){
-            axios.get('/sanctum/csrt-cookie')
+            axios.get('http://localhost:8000/sanctum/csrf-cookie')
                 .then(response => {
-                    const url = 'http://127.0.0.1:8000/api/Login';
-                    const params = {
+                    axios.post('http://127.0.0.1:8000/api/login' , {
                         email: this.email,
                         password: this.password
-                    };
-                    axios.post(url, params)
-                        .then(response => {
-                            this.loggedIn = response.data.result;
-                        })
-                        .catch(error => {
-                           console.log("response error", error.response)
-                        });
+                    })
+                    .then(response => {
+                        loggedIn = response.data.result;
+                    })
+                    .catch(error => {
+                        console.log("response error", error.response)
+                    });
                 });
         },
-        //login()が４０４エラー
+
         getUser() {
-            axios.get('/api/user')
+            axios.get('/api/logout')
                 .then(response => {
                     console.log(response.data);
                 });

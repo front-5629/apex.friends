@@ -1,9 +1,10 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" app>
+    <v-app-bar app>
       <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
       </v-btn>
+      <!-- ログイン画面への移動ボタン -->
       <v-spacer />
       <v-toolbar-title class="red--text text--darken-1 font-weight-bold">
         APEX FRIENDS

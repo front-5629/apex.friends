@@ -1001,7 +1001,7 @@
             "time": "2020-11-17T14:53:20+00:00"
         },
         {
-            "name": "laravel/sanctum",
+            "name": "",
             "version": "v2.8.2",
             "source": {
                 "type": "git",
