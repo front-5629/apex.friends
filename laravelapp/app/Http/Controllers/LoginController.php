@@ -16,19 +16,20 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)) {
             //ログイン成功時
-            $loggedIn =true;
-            $message = 'ログイン完了!!';
-            return response()-> json(['loggedIn'=> '$loggedIn', 'message'=> '$message']);
+            $loggedIn = true;
+            return ['loggedIn'=> '$loggedIn'];
         }
      
         throw ValidationException::withMessages([
-            'email' => ['入力された情報が間違っています'],
+            'email' => ['メールアドレスが間違っています'],
+            'password' =>['パスワードが違います']
         ]);
     }
 
     public function logout()
     {
         Auth::logout();
-        return response()->json(['message' => 'Logged out'], 200);
+        $loggedIn = false;
+        return ['loggedIn' => '$loggedIn'];
     }
 }

@@ -22,8 +22,8 @@
         </form>
         <v-col v-else>
             <span >ログイン中</span>
-            <v-btn @click="getUser">
-                ユーザー情報取得
+            <v-btn @click="logout">
+                ログアウト
             </v-btn>
         </v-col>
     </v-row>
@@ -33,35 +33,37 @@
 const axios = require('axios');
 
 export default {
-    data: {
+    data() {
+        return{
         loggedIn: '',
         email: '',
-        password: '',
-        result: '',
-        message:''
+        password: ''
+        }
     },
 
     methods: {
         login(){
             axios.get('http://localhost:8000/sanctum/csrf-cookie')
                 .then(response => {
-                    axios.post('http://127.0.0.1:8000/api/login' , {
+                    axios.post('http://localhost:8000/api/login' , {
                         email: this.email,
                         password: this.password
                     })
                     .then(response => {
-                        loggedIn = response.data.result;
+                        // loggedIn = response.loggedIn;
+                        this.loggedIn = response.data.loggedIn;
                     })
                     .catch(error => {
-                        console.log("response error", error.response)
+                        console.log('responseError', error)
                     });
                 });
         },
 
-        getUser() {
-            axios.get('/api/logout')
+        logout() {
+            axios.post('http://localhost:8000/api/logout')
                 .then(response => {
-                    console.log(response.data);
+                    this.loggedIn = response.data.loggedIn;
+                    this.$router.push('/');
                 });
         }
     }
