@@ -20,12 +20,18 @@
             </v-btn>
             
         </form>
-        <v-col v-else>
-            <span >ログイン中</span>
+        <span v-else>ログイン中</span>
+        <v-col>
             <v-btn @click="logout">
                 ログアウト
             </v-btn>
+            <v-btn @click="getUser">
+                ユーザーを表示
+            </v-btn>
+            <p>{{getUserMessage}}</p>
         </v-col>
+        <span>{{user.name}}</span>
+        <span>{{user.name}}</span>
     </v-row>
 </template>
 
@@ -37,7 +43,9 @@ export default {
         return{
         loggedIn: '',
         email: '',
-        password: ''
+        password: '',
+        getUserMessage: '',
+        user: {}
         }
     },
 
@@ -50,8 +58,7 @@ export default {
                         password: this.password
                     })
                     .then(response => {
-                        // loggedIn = response.loggedIn;
-                        this.loggedIn = response.data.loggedIn;
+                        this.loggedIn = response.data.loggedIn; 
                     })
                     .catch(error => {
                         console.log('responseError', error)
@@ -65,7 +72,20 @@ export default {
                     this.loggedIn = response.data.loggedIn;
                     this.$router.push('/');
                 });
+        },
+
+        getUser() {
+            axios.get('http://localhost:8000/api/user')
+                .then(response => {
+                    this.getUserMessage = response.data;
+                    this.user = response.data;
+                    })
+                    .catch(error => {
+                    console.log(error)
+                    this.getUserMessage = '取得できません。'
+        })
         }
+
     }
 }
 </script>

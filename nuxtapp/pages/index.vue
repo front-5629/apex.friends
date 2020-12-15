@@ -79,6 +79,8 @@ export default{
         .catch( error =>{
           console.log("response error", error.response)
         })
+        
+      this.$router.push('/');
     }
   }
 

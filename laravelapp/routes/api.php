@@ -19,15 +19,24 @@ use App\Http\Controllers\Api\Auth\LoginController;
 //     Route::post('/login', [LoginController::class, 'login']);
 // });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', function(Request $request){
+        return $request->user();
+    });
 });
 
 Route::resource('/people', 'App\Http\Controllers\PersonController');
 Route::resource('/posts', 'App\Http\Controllers\PostController');
 Route::resource('/clubs', 'App\Http\Controllers\ClubController');
+Route::resource('/getUser', 'App\Http\Controllers\LoginController@getUser');
+
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
+
 
 Route::post('/register', 'App\Http\Controllers\RegisterController@register');

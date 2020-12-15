@@ -15,9 +15,8 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt($credentials)) {
-            //ログイン成功時
             $loggedIn = true;
-            return ['loggedIn'=> '$loggedIn'];
+            return ['loggedIn'=> $loggedIn];
         }
      
         throw ValidationException::withMessages([
@@ -31,5 +30,11 @@ class LoginController extends Controller
         Auth::logout();
         $loggedIn = false;
         return ['loggedIn' => '$loggedIn'];
+    }
+
+    public function getUser()
+    {
+        $user = Auth::user();
+        return ['user' => $user];
     }
 }

@@ -38,7 +38,6 @@ const axios = require('axios');
 
 export default {
     data: {
-        loggedIn: '',
         registerName: '',
         registerEmail: '',
         registerPassword: '',
