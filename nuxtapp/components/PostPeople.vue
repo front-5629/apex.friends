@@ -125,41 +125,43 @@
   export default {
     data() {
       return { 
+        people_id: null,
         hardWare:'',
-        voiceChat:'',
-        rank:'',
         mainPic:'',
         secondPic:'',
         thirdPic:'',
+        rank:'',
+        voiceChat:'',
         message:'',
+        psid:''
       }
     },
 
     methods: {
       postPeople(){
         let people = {
-          'hardWare': this.hardWare,
-          'voiceChat': this.voiceChat,
-          'rank': this.rank,
-          'mainPic': this.mainPic,
-          'secondPic': this.secondPic,
-          'thirdPic': this.thirdPic,
-          'message': this.message,
-        };
+          'people_id' : null,
+          'hardWare' : this.hardWare,
+          'mainpic' : this.mainPic,
+          'secondpic' : this.secondPic,
+          'thirdpic' : this.thirdPic,
+          'rank' : this.rank,
+          'voice_chat' : this.voiceChat,
+          'message' : this.message,
+          'psid' : this.psid
+        }
 
-        this.$axios.$post('/v1/posts',people).then(response => {
-          // console.log(response.data.hardWare);
-          // console.log(response.data.voiceChat);
-          // console.log(response.data.rank);
-          // console.log(response.data.mainPic);
-          // console.log(response.data.secondPic);
-          // console.log(response.data.thirdPic);
-          // console.log(response.data.message);
-        })
-        .catch( error =>{
-          console.log("response error", error.response)
-        })
+        this.$axios
+          .post('http://localhost:8000/api/posts', people)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch( error =>{
+            console.log("response error", error.response)
+          })
+        
+        this.$router.push('/');
       }
-    }
+    }  
   }
 </script>

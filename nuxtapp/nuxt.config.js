@@ -46,9 +46,9 @@ export default {
   },
 
   proxy: {
-    '/v1/': {
-      target: "api/"
-    }
+    // '/v1/': {
+    //   target: "api/"
+    // }
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)

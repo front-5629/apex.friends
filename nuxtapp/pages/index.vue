@@ -6,28 +6,45 @@
       cols="12" sm="8" md="6"
     >
       <v-card>
-        <v-card-title>
-          {{ post.psid }}
-        </v-card-title>
-        <v-card-text outlined>
-        <v-chip-group
-          column
-        >
-          <v-chip>{{post.require_rank}}</v-chip>
+        <v-row>
+          <v-col cols="6" sm="6">
+            <v-card-title>
+              {{ post.psid }}
+            </v-card-title>
+          </v-col>
+          <v-col cols="6" sm="6">
+            <v-card-text>
+              <p>{{post.created_at}}</p>
+            </v-card-text>
+          </v-col>
+          <v-card-text outlined>
+          <v-chip-group
+            column
+          >
+            <v-chip>{{post.headware}}</v-chip>
 
-          <v-chip>{{post.mainpic}}</v-chip>
+            <v-chip>
+              <v-icon v-if="post.voice_chat = 0">mdi-microphone-off</v-icon>
 
-          <v-chip>{{post.secondpic}}</v-chip>
+              <!-- <v-icon v-if="post.voice_chat = 1">mdi-microphone</v-icon> -->
+            </v-chip>
 
-          <v-chip>{{post.thirdpic}}</v-chip>
-        </v-chip-group>
-        </v-card-text>
-        <v-divider class="mx-4"></v-divider>
+            <v-chip>{{post.require_rank}}</v-chip>
 
-        <v-card-text>
-          {{post.message}}
-        </v-card-text>
+            <v-chip>{{post.mainpic}}</v-chip>
 
+            <v-chip>{{post.secondpic}}</v-chip>
+
+            <v-chip>{{post.thirdpic}}</v-chip>
+            
+          </v-chip-group>
+          </v-card-text>
+          <v-divider class="mx-4"></v-divider>
+
+          <v-card-text>
+            {{post.message}}
+          </v-card-text>
+        </v-row>
       </v-card>
     </v-col>
     <v-btn @click="postPeople">

@@ -1,4 +1,7 @@
 <template>
+     <!-- ログイン機能は投稿が増えるまで実装しない
+     現在ログインできるが保持されず、getUser logoutなどが意味がない。ログイン成功した時点で接続されてない気がする。
+     認証のsession cookie等を調べて保持できるようにする必要がある -->
     <v-row justify="center">
         <form v-if="!loggedIn">
             <span>ログインフォーム</span>

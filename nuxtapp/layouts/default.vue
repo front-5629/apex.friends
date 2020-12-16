@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app>
-      <v-btn icon to="/login" nuxt>
+      <!-- <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
-      </v-btn>
-      <!-- ログイン画面への移動ボタン -->
+      </v-btn> -->
+      <!-- ログイン画面への移動ボタン ログイン機能実装まで無効化中　-->
       <v-spacer />
       <v-toolbar-title class="red--text text--darken-1 font-weight-bold">
         APEX FRIENDS
@@ -67,9 +67,6 @@
 export default {
   data: ()=>({
     // icons: [
-    //   'mdi-home',
-    //   'mdi-magnify',
-    //   'mdi-pencil-plus',
     //   'mdi-microphone',
     //   'mdi-microphone-off',
     // ],

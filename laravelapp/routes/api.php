@@ -37,6 +37,4 @@ Route::resource('/getUser', 'App\Http\Controllers\LoginController@getUser');
 
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout');
-
-
 Route::post('/register', 'App\Http\Controllers\RegisterController@register');
