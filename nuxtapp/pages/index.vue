@@ -21,21 +21,53 @@
           <v-chip-group
             column
           >
-            <v-chip>{{post.headware}}</v-chip>
-
-            <v-chip>
-              <v-icon v-if="post.voice_chat = 0">mdi-microphone-off</v-icon>
-
-              <!-- <v-icon v-if="post.voice_chat = 1">mdi-microphone</v-icon> -->
+            <v-chip
+            label
+            outlined
+            >
+            {{post.headware}}
             </v-chip>
 
-            <v-chip>{{post.require_rank}}</v-chip>
+            <v-chip
+            label
+            outlined>
+              <v-icon v-if="post.voice_chat = 1">mdi-microphone</v-icon>
+            </v-chip>
 
-            <v-chip>{{post.mainpic}}</v-chip>
+            <v-chip
+            label
+            outlined
+            >
+              <v-icon v-if="post.voice_chat = 0">mdi-microphone-off</v-icon>
+            </v-chip>
 
-            <v-chip>{{post.secondpic}}</v-chip>
+            <v-chip
+            label
+            outlined
+            >
+            {{post.require_rank}}
+            </v-chip>
 
-            <v-chip>{{post.thirdpic}}</v-chip>
+            <v-chip
+            label
+            outlined
+            >
+            {{post.mainpic}}
+            </v-chip>
+
+            <v-chip
+            label
+            outlined
+            >
+            {{post.secondpic}}
+            </v-chip>
+
+            <v-chip
+            label
+            outlined
+            >
+            {{post.thirdpic}}
+            </v-chip>
             
           </v-chip-group>
           </v-card-text>
@@ -61,6 +93,16 @@ export default{
   data() {
     return {
       posts: []
+    }
+  },
+
+  compoted: {
+    checkVoiceChat(){
+      if(this.post.voice_chat === 1){
+        return <v-icon>mdi-microphone</v-icon>;
+      }else{
+        return mdi-microphone-off;
+      }
     }
   },
 

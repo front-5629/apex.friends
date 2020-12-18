@@ -46,7 +46,7 @@
             cols="12"
             sm="6"
             >
-                <span>以上</span>
+            <span>以上</span>
             </v-col>
             <v-col
             cols="12"
