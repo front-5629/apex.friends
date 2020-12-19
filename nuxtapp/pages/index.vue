@@ -30,16 +30,18 @@
 
             <v-chip
             label
-            outlined>
-              <v-icon v-if="post.voice_chat = 1">mdi-microphone</v-icon>
+            outlined
+            v-bind:class="active">
+              <v-icon>mdi-microphone</v-icon>
             </v-chip>
+             <!-- filterで変換するのを要検証 -->
 
-            <v-chip
+            <!-- <v-chip
             label
             outlined
             >
               <v-icon v-if="post.voice_chat = 0">mdi-microphone-off</v-icon>
-            </v-chip>
+            </v-chip> -->
 
             <v-chip
             label
@@ -92,16 +94,17 @@ export default{
 
   data() {
     return {
-      posts: []
+      posts: [],
+      active: false
     }
   },
 
   compoted: {
-    checkVoiceChat(){
-      if(this.post.voice_chat === 1){
-        return <v-icon>mdi-microphone</v-icon>;
-      }else{
-        return mdi-microphone-off;
+    function(){
+      if(this.post.voice_chat !== 1){
+        return  {
+          active: false
+        }
       }
     }
   },
