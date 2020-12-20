@@ -14,7 +14,7 @@
           </v-col>
           <v-col cols="6" sm="6">
             <v-card-text>
-              <p>{{post.created_at}}</p>
+              <p>{{post.created_at | dateFilter}}</p>
             </v-card-text>
           </v-col>
           <v-card-text outlined>
@@ -30,18 +30,9 @@
 
             <v-chip
             label
-            outlined
-            v-bind:class="active">
-              <v-icon>mdi-microphone</v-icon>
+            outlined>
+              <v-icon>{{post.voice_chat | checkVoiceChat}}</v-icon>
             </v-chip>
-             <!-- filterで変換するのを要検証 -->
-
-            <!-- <v-chip
-            label
-            outlined
-            >
-              <v-icon v-if="post.voice_chat = 0">mdi-microphone-off</v-icon>
-            </v-chip> -->
 
             <v-chip
             label
@@ -89,23 +80,13 @@
 
 <script>
 const axios = require('axios');
+const moment = require('moment');
 
 export default{
 
   data() {
     return {
       posts: [],
-      active: false
-    }
-  },
-
-  compoted: {
-    function(){
-      if(this.post.voice_chat !== 1){
-        return  {
-          active: false
-        }
-      }
     }
   },
 
@@ -117,6 +98,23 @@ export default{
           this.posts = response
         })
     },
+
+  filters: {
+    //voice_chatの真偽値に応じてv-iconの表示を変える処理
+    checkVoiceChat(value) {
+      if(value === 1){
+        value = 'mdi-microphone'
+        return value
+      }else{
+        value = 'mdi-microphone-off'
+        return value
+      }
+    },
+
+    dateFilter(value) {
+      return moment(value).format('YYYY-MM-DD HH:MM')
+    }
+  },
 
   methods: {
     postPeople() {
@@ -131,7 +129,6 @@ export default{
         'message' : '楽しもうや',
         'psid' : 'yamaguchi'
       }
-
 
       this.$axios
         .post('http://localhost:8000/api/posts', people)

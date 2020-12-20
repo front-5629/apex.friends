@@ -39,6 +39,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    '@nuxtjs/moment'
   ],
 
   axios: {
@@ -49,6 +50,10 @@ export default {
     // '/v1/': {
     //   target: "api/"
     // }
+  },
+
+  moment: {
+    locales: ['ja']
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
