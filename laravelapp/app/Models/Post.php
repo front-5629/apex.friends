@@ -11,8 +11,6 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    // protected $dates = ['display_date'];
-
     protected $fillable = [
         'people_id',
         'headware',

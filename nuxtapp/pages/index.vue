@@ -31,7 +31,7 @@
             <v-chip
             label
             outlined>
-              <v-icon>{{post.voice_chat | checkVoiceChat}}</v-icon>
+              <v-icon>{{post.voice_chat | convertMicicon}}</v-icon>
             </v-chip>
 
             <v-chip
@@ -101,7 +101,7 @@ export default{
 
   filters: {
     //voice_chatの真偽値に応じてv-iconの表示を変える処理
-    checkVoiceChat(value) {
+    convertMicicon(value) {
       if(value === 1){
         value = 'mdi-microphone'
         return value

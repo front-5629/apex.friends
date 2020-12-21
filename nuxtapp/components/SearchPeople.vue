@@ -32,6 +32,7 @@
                 :items="['silver', 'gold', 'plat4', 'plat3', 'dia4', 'dia3', 'dia2', 'master']"
                 label="ランク"
                 required
+                suffix="以上"
             >
             </v-select>
             </v-col>

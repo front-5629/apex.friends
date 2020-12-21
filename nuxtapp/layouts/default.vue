@@ -66,10 +66,6 @@
 <script>
 export default {
   data: ()=>({
-    // icons: [
-    //   'mdi-microphone',
-    //   'mdi-microphone-off',
-    // ],
     rightDrawer: false,
     menuGroup: null,
   }),

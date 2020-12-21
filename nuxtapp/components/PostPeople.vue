@@ -7,11 +7,19 @@
             cols="12"
             sm="6"
             >
+            <v-text-field
+            label="ID"
+            v-model="psid"
+            >
+            </v-text-field>
+            </v-col>
+            <v-col
+            cols="12"
+            sm="6"
+            >
             <v-select
-                :items="['ps4', 'pc']"
-                item-value
+                :items="['PS4', 'PC']"
                 label="ハードウェア"
-             
                 v-model="hardWare"
             >
             </v-select>
@@ -21,11 +29,10 @@
             sm="6"
             >
             <v-select
-                :items="['指定なし' ,'ON', 'OFF']"
-                :item-text="['指定なし' ,'ON', 'OFF']"
-                :item-value="['null' ,'1', '0']"
+                :items="['ON', 'OFF']"
+                :item-text="['ON', 'OFF']"
+                :item-value="['1', '0']"
                 label="ボイスチャット"
-              
                 v-model="voiceChat"
             ></v-select>
             </v-col>
@@ -34,19 +41,13 @@
             sm="6"
             >
             <v-select
-                :items="['silver', 'gold', 'plat4', 'plat3', 'plat2', 'plat1', 'dia4', 
-                         'dia3', 'dia2', 'dia1', 'master', 'predator']"
-                label="募集ランク"
-            
+                :items="['ブロンズ', 'シルバー', 'ゴールド',
+                         'プラチナ4', 'プラチナ3', 'プラチナ2', 'プラチナ1', 
+                         'ダイヤ4', 'ダイヤ3', 'ダイヤ2', 'ダイヤ1', 'マスター', 'プレデター']"
+                label="ランク"
                 v-model="rank"
             >
             </v-select>
-            </v-col>
-            <v-col
-            cols="12"
-            sm="6"
-            >
-            <span>以上</span>
             </v-col>
             <v-col
             cols="12"
@@ -131,7 +132,7 @@
         secondPic:'',
         thirdPic:'',
         rank:'',
-        voiceChat:'',
+        voiceChat: '',
         message:'',
         psid:''
       }
@@ -145,7 +146,7 @@
           'mainpic' : this.mainPic,
           'secondpic' : this.secondPic,
           'thirdpic' : this.thirdPic,
-          'rank' : this.rank,
+          'require_rank' : this.rank,
           'voice_chat' : this.voiceChat,
           'message' : this.message,
           'psid' : this.psid
