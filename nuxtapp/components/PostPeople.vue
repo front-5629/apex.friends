@@ -29,11 +29,12 @@
             sm="6"
             >
             <v-select
-                :items="['ON', 'OFF']"
-                :item-text="['ON', 'OFF']"
-                :item-value="['1', '0']"
+                :items="vcItem"
+                item-text="label"
+                item-value="value"
                 label="ボイスチャット"
                 v-model="voiceChat"
+                return-object
             ></v-select>
             </v-col>
             <v-col
@@ -126,28 +127,34 @@
   export default {
     data() {
       return { 
-        people_id: null,
+        people_id: '',
         hardWare:'',
         mainPic:'',
         secondPic:'',
         thirdPic:'',
         rank:'',
-        voiceChat: '',
         message:'',
-        psid:''
+        psid:'',
+        voiceChat: {label: '' , value: ''},
+        vcItem:[
+          {label: 'ON' , value: 1},
+          {label: 'OFF' , value: 0}
+        ]
+        // vcItem:{label: 'ON', value:1}
+        //オブジェクトか配列のどちらを受け取るべきかわからない。どちらでもエラーでるのでhtml側で指定方法要検討
       }
     },
 
     methods: {
       postPeople(){
         let people = {
-          'people_id' : null,
+          'people_id' : 1,
           'hardWare' : this.hardWare,
           'mainpic' : this.mainPic,
           'secondpic' : this.secondPic,
           'thirdpic' : this.thirdPic,
           'require_rank' : this.rank,
-          'voice_chat' : this.voiceChat,
+          'voice_chat' : this.voiceChat.value,
           'message' : this.message,
           'psid' : this.psid
         }

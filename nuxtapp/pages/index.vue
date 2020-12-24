@@ -124,10 +124,10 @@ export default{
         'mainpic' : 'オクタン',
         'secondpic' : 'レイス',
         'thirdpic' : 'コースティック',
-        'require_rank' : 'plat3',
-        'voice_chat' : 0,
-        'message' : '楽しもうや',
-        'psid' : 'yamaguchi'
+        'require_rank' : 'ブロンズ',
+        'voice_chat' : 1,
+        'message' : 'よろ',
+        'psid' : 'nokkin'
       }
 
       this.$axios

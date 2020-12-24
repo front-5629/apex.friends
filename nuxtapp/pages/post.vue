@@ -1,6 +1,7 @@
 <template>
-  <v-card>
-    <v-toolbar flat>
+  <!-- heightを有効にしてflatでスクロールバーを実装したため、レスポンシブ対応必要-->
+  <v-card height="60rem" flat>
+    <v-toolbar>
         <v-tabs>
             <v-tabs-slider color="red"></v-tabs-slider>
             <v-spacer />
@@ -12,7 +13,7 @@
             </v-tab>
             <v-spacer />
             <v-tab-item>
-                <v-card>
+                <v-card >
                 <v-card-text>
                     <PostPeople />
                 </v-card-text>
