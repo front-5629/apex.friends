@@ -135,12 +135,12 @@
         rank:'',
         message:'',
         psid:'',
-        voiceChat: {label: '' , value: ''},
-        vcItem:[
-          {label: 'ON' , value: 1},
-          {label: 'OFF' , value: 0}
-        ]
-        // vcItem:{label: 'ON', value:1}
+        voiceChat: [{label: '' , value: ''}],
+        // vcItem:[
+        //   {label: 'ON' , value: '1'},
+        //   {label: 'OFF' , value: '0'}
+        // ]
+        vcItem: [{label: 'ON', value:1}]
         //オブジェクトか配列のどちらを受け取るべきかわからない。どちらでもエラーでるのでhtml側で指定方法要検討
       }
     },
@@ -154,7 +154,7 @@
           'secondpic' : this.secondPic,
           'thirdpic' : this.thirdPic,
           'require_rank' : this.rank,
-          'voice_chat' : this.voiceChat.value,
+          'voice_chat' : this.voiceChat,
           'message' : this.message,
           'psid' : this.psid
         }
