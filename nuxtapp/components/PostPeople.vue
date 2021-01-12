@@ -10,7 +10,7 @@
           <v-select
             :items="['PS4', 'PC']"
             label="ハードウェア"
-            v-model="hardWare"
+            v-model="herdWare"
           >
           </v-select>
         </v-col>
@@ -18,9 +18,10 @@
           <v-select
             :items="vcItem"
             item-text="label"
-            item-value="voiceChat"
+            item-value="value"
             label="ボイスチャット"
-            v-model="vcItem.voiceChat"
+            v-model="voiceChat"
+            return-object
           ></v-select>
         </v-col>
         <v-col cols="12" sm="6">
@@ -140,16 +141,17 @@ export default {
   data() {
     return {
       people_id: "",
-      hardWare: "",
+      herdWare: "",
       mainPic: "",
       secondPic: "",
       thirdPic: "",
       rank: "",
       message: "",
       psid: "",
+      voiceChat: { label: "", value: "" },
       vcItem: [
-        { label: "ON", voiceChat: "1" },
-        { label: "OFF", voiceChat: "0" }
+        { label: "ON", value: "1" },
+        { label: "OFF", value: "0" }
       ]
     };
   },
@@ -157,13 +159,15 @@ export default {
   methods: {
     postPeople() {
       let people = {
+        //people_idはnot nullなのでsqlの設定を変えるまでは１を仮に入れておく
+        //そもそもログイン機能実装までpeople_idとの紐付けは必要ない
         people_id: 1,
-        hardWare: this.hardWare,
+        headware: this.herdWare,
         mainpic: this.mainPic,
         secondpic: this.secondPic,
         thirdpic: this.thirdPic,
         require_rank: this.rank,
-        voice_chat: this.voiceChat,
+        voice_chat: this.voiceChat.value,
         message: this.message,
         psid: this.psid
       };
