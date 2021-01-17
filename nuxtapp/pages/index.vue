@@ -58,14 +58,28 @@ const moment = require("moment");
 export default {
   data() {
     return {
-      posts: []
+      posts: {}
     };
   },
 
+  //storeの投稿閲覧機能作成中なのでCO
+  // mounted: function() {
+  //   this.$axios.$get("http://127.0.0.1:8000/api/posts").then(response => {
+  //     this.posts = response;
+  //   });
+  // },
+
+  //最初にapi/postをmutationする
+  created: function() {
+    const res = this.$axios.$get("http://127.0.0.1:8000/api/posts");
+    this.$store.commit("post/setPost", res);
+  },
+
+  //storeのpostの中身を取得してpostsに代入
+  //エラーでないが表示されない
   mounted: function() {
-    this.$axios.$get("http://127.0.0.1:8000/api/posts").then(response => {
-      this.posts = response;
-    });
+    const post = this.$store.getters["post/getPost"];
+    this.posts = post;
   },
 
   filters: {

@@ -4,12 +4,12 @@
     <v-container justify="center">
       <v-row>
         <v-col cols="12" sm="6">
-          <v-select :items="['ps4', 'pc']" label="ハードウェア" required>
+          <v-select :items="['PS4', 'PC']" label="ハードウェア" required>
           </v-select>
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
-            :items="['オン', 'オフ']"
+            :items="['ON', 'OFF']"
             label="ボイスチャット"
             required
           ></v-select>
@@ -17,14 +17,19 @@
         <v-col cols="12" sm="6">
           <v-select
             :items="[
-              'silver',
-              'gold',
-              'plat4',
-              'plat3',
-              'dia4',
-              'dia3',
-              'dia2',
-              'master'
+              'ブロンズ',
+              'シルバー',
+              'ゴールド',
+              'プラチナ4',
+              'プラチナ3',
+              'プラチナ2',
+              'プラチナ1',
+              'ダイヤ4',
+              'ダイヤ3',
+              'ダイヤ2',
+              'ダイヤ1',
+              'マスター',
+              'プレデター'
             ]"
             label="ランク"
             required
@@ -54,7 +59,7 @@
               'レヴナント',
               'ワットソン'
             ]"
-            label="メイン使用キャラクター"
+            label="使用レジェンド"
             multiple
           >
           </v-autocomplete>
@@ -73,3 +78,36 @@
     </v-btn>
   </v-row>
 </template>
+
+<script>
+const axios = require("axios");
+
+export default {
+  data() {
+    return {};
+  },
+
+  methods: {
+    postPeople() {
+      //検索フォームの入力内容を引数にcontrollerのshowメソッドにリクエスト→レスポンスをホームの投稿一覧に反映させる
+      let searchItem = {
+        headware: this.herdWare,
+        voice_chat: this.voiceChat,
+        require_rank: this.rank,
+        picCharactor: this.picCharactor
+      };
+
+      this.$axios
+        .$get("http://localhost:8000/api/posts", searchItem)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log("response error", error.response);
+        });
+
+      this.$router.push("/");
+    }
+  }
+};
+</script>

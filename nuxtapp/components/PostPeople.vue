@@ -160,7 +160,7 @@ export default {
     postPeople() {
       let people = {
         //people_idはnot nullなのでsqlの設定を変えるまでは１を仮に入れておく
-        //そもそもログイン機能実装までpeople_idとの紐付けは必要ない
+        //そもそもログイン機能実装までpeople_idとの紐付けは必要ないので
         people_id: 1,
         headware: this.herdWare,
         mainpic: this.mainPic,
