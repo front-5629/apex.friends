@@ -10,7 +10,7 @@
         APEX FRIENDS
       </v-toolbar-title>
       <v-spacer />
-      <v-btn  icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon color="red">mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
@@ -42,19 +42,22 @@
     </v-navigation-drawer>
 
     <v-footer padless app>
-      <v-row justify="space-around" align="center" >
-        <v-col cols="4">
-          <v-btn block depressed to="/" nuxt @click="$vuetify.goTo(0)"> 
+      <v-row justify="space-around" align="center">
+        <v-col cols="6">
+          <v-btn block depressed to="/" nuxt @click="$vuetify.goTo(0)">
             <v-icon size="24px">mdi-home</v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="4">
+
+        <!-- 検索機能実装までco -->
+        <!-- <v-col cols="4">
           <v-btn  block depressed nuxt to="/refine_search"> 
             <v-icon size="24px">mdi-magnify</v-icon>
           </v-btn>
-        </v-col>
-        <v-col cols="4">
-          <v-btn  block depressed nuxt to="/post"> 
+        </v-col> -->
+
+        <v-col cols="6">
+          <v-btn block depressed nuxt to="/post">
             <v-icon size="24px">mdi-pencil-plus</v-icon>
           </v-btn>
         </v-col>
@@ -65,15 +68,15 @@
 
 <script>
 export default {
-  data: ()=>({
+  data: () => ({
     rightDrawer: false,
-    menuGroup: null,
+    menuGroup: null
   }),
 
-  watch:{
-    menuGroup(){
-      this.rightDrawer = false
-    },
-  },
+  watch: {
+    menuGroup() {
+      this.rightDrawer = false;
+    }
+  }
 };
 </script>
