@@ -116,21 +116,23 @@
           ></v-select>
         </v-col>
         <v-col cols="12" sm="12">
-          <v-textarea label="メッセージ（100文字以内）" v-model="message">
+          <v-textarea
+            counter
+            label="メッセージ（100文字以内）"
+            v-model="message"
+          >
           </v-textarea>
         </v-col>
       </v-row>
     </v-container>
-    <small
-      >*追加してほしい項目等あれば、画面右上のメニューからお問い合わせ下さい</small
-    >
-    <v-spacer></v-spacer>
-    <v-btn color="blue darken-1" text to="/" nuxt>
-      閉じる
-    </v-btn>
-    <v-btn color="blue darken-1" text @click="postPeople">
-      投稿
-    </v-btn>
+    <v-row justify="end" class="mr-2">
+      <v-btn color="blue darken-1" text to="/" nuxt class="caption mr-2">
+        閉じる
+      </v-btn>
+      <v-btn color="blue darken-1" outlined @click="postPeople">
+        投稿
+      </v-btn>
+    </v-row>
   </v-row>
 </template>
 

@@ -1,50 +1,70 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12">
-      <v-btn @click="viewPosts">フレンド</v-btn>
-      <v-btn @click="viewClubs">クラブ</v-btn>
+  <v-container>
+    <v-col>
+      <v-btn
+        right
+        fixed
+        rounded
+        @click="viewPosts"
+        width="90px"
+        class="friend-btn"
+        >フレンド</v-btn
+      >
+      <v-btn
+        right
+        fixed
+        rounded
+        @click="viewClubs"
+        width="90px"
+        class="club-btn"
+        >クラブ</v-btn
+      >
     </v-col>
-    <v-row v-if="this.$store.state.postFlag.flag === 'posts'">
+
+    <v-row
+      v-if="this.$store.state.postFlag.flag === 'posts'"
+      justify="center"
+      align="center"
+    >
       <v-col v-for="post in posts" :key="post.id" cols="12" sm="8" md="6">
         <v-card>
           <v-row>
-            <v-col cols="6" sm="6">
+            <v-col cols="6">
               <v-card-title>
                 {{ post.psid }}
               </v-card-title>
             </v-col>
-            <v-col cols="6" sm="6">
+            <v-col cols="6">
               <v-card-text>
                 <p>{{ post.created_at | dateFilter }}</p>
               </v-card-text>
             </v-col>
-            <v-card-text outlined>
-              <v-chip-group column>
-                <v-chip label outlined>
-                  {{ post.headware }}
-                </v-chip>
+            <v-card-text>
+              <v-chip label outlined>
+                {{ post.headware }}
+              </v-chip>
 
-                <v-chip label outlined>
-                  <v-icon>{{ post.voice_chat | convertMicicon }}</v-icon>
-                </v-chip>
+              <v-chip label outlined>
+                <v-icon>{{ post.voice_chat | convertMicicon }}</v-icon>
+              </v-chip>
 
-                <v-chip label outlined>
-                  {{ post.require_rank }}
-                </v-chip>
+              <v-chip label outlined>
+                {{ post.require_rank }}
+              </v-chip>
 
-                <v-chip label outlined>
-                  {{ post.mainpic }}
-                </v-chip>
-
-                <v-chip label outlined>
-                  {{ post.secondpic }}
-                </v-chip>
-
-                <v-chip label outlined>
-                  {{ post.thirdpic }}
-                </v-chip>
-              </v-chip-group>
+              <v-chip label outlined>
+                {{ post.mainpic }}
+              </v-chip>
+              <span>＞</span>
+              <v-chip label outlined>
+                {{ post.secondpic }}
+              </v-chip>
+              <span>＞</span>
+              <v-chip label outlined>
+                {{ post.thirdpic }}
+              </v-chip>
             </v-card-text>
+
             <v-divider class="mx-4"></v-divider>
 
             <v-card-text>
@@ -54,16 +74,17 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row v-else>
+
+    <v-row v-else justify="center" align="center">
       <v-col v-for="club in clubs" :key="club.id" cols="12" sm="8" md="6">
         <v-card>
           <v-row>
-            <v-col cols="6" sm="6">
+            <v-col cols="6">
               <v-card-title>
                 {{ club.clubs_name }}
               </v-card-title>
             </v-col>
-            <v-col cols="6" sm="6">
+            <v-col cols="6">
               <v-card-text>
                 <p>{{ club.created_at | dateFilter }}</p>
               </v-card-text>
@@ -94,7 +115,7 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -160,3 +181,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.friend-btn {
+  margin-right: 100px;
+  z-index: 1;
+}
+
+.club-btn {
+  z-index: 1;
+}
+</style>

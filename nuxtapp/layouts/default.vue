@@ -1,18 +1,18 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar>
       <!-- <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
       </v-btn> -->
-      <!-- ログイン画面への移動ボタン ログイン機能実装まで無効化中　-->
+      <!-- ログイン画面への移動ボタン ログイン機能実装までCO中　-->
       <v-spacer />
-      <v-toolbar-title class="red--text text--darken-1 font-weight-bold">
+      <v-toolbar-title class="app-title">
         APEX FRIENDS
       </v-toolbar-title>
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon color="red">mdi-menu</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
     <v-main>
       <v-container>
@@ -43,7 +43,7 @@
 
     <v-footer padless app>
       <v-row justify="space-around" align="center">
-        <v-col cols="6">
+        <v-col cols="4">
           <v-btn block depressed to="/" nuxt @click="$vuetify.goTo(0)">
             <v-icon size="24px">mdi-home</v-icon>
           </v-btn>
@@ -56,7 +56,7 @@
           </v-btn>
         </v-col> -->
 
-        <v-col cols="6">
+        <v-col cols="4">
           <v-btn block depressed nuxt to="/post">
             <v-icon size="24px">mdi-pencil-plus</v-icon>
           </v-btn>
@@ -80,3 +80,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.app-title {
+  font-size: 1.5rem;
+  color: rgb(221, 7, 7);
+  font-weight: 500;
+}
+</style>

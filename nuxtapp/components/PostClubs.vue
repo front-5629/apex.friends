@@ -8,9 +8,10 @@
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
-            :items="['1~10', '10~20', '20~30']"
+            :items="memberItem"
             label="メンバー数"
             required
+            v-model="clubsMember"
           >
           </v-select>
         </v-col>
@@ -27,11 +28,17 @@
             label="募集ランク"
             required
             suffix="以上"
+            v-model="requireRank"
           >
           </v-select>
         </v-col>
         <v-col cols="12" sm="6">
-          <v-select :items="['ps4', 'pc']" label="ハードウェア" required>
+          <v-select
+            :items="['ps4', 'pc']"
+            label="ハードウェア"
+            v-model="clubsHeadware"
+            required
+          >
           </v-select>
         </v-col>
         <v-col cols="12" sm="6">
@@ -45,27 +52,19 @@
           ></v-select>
         </v-col>
         <v-col cols="12" sm="12">
-          <!-- text-fieldsのほうがいいかも -->
-          <v-textarea
-            counter
-            label="メッセージ（150文字）"
-            :rules="rules"
-            :value="value"
-          >
+          <v-textarea counter label="メッセージ（150文字）" v-model="message">
           </v-textarea>
         </v-col>
       </v-row>
     </v-container>
-    <small
-      >*追加してほしい項目等あれば、画面右上のメニューからお問い合わせ下さい</small
-    >
-    <v-spacer></v-spacer>
-    <v-btn color="blue darken-1" text to="/" nuxt>
-      閉じる
-    </v-btn>
-    <v-btn color="blue darken-1" text>
-      検索
-    </v-btn>
+    <v-row justify="end" class="mr-2">
+      <v-btn color="blue darken-1" text to="/" nuxt class="caption mr-2">
+        閉じる
+      </v-btn>
+      <v-btn color="blue darken-1" outlined @click="postClubs">
+        投稿
+      </v-btn>
+    </v-row>
   </v-row>
 </template>
 
@@ -76,39 +75,57 @@ export default {
   data() {
     return {
       people_id: "",
-      herdWare: "",
-      mainPic: "",
-      secondPic: "",
-      thirdPic: "",
-      rank: "",
+      clubsName: "",
+      clubsMember: "",
+      clubsHeadware: "",
+      requireRank: "",
       message: "",
-      psid: "",
       voiceChat: { label: "", value: "" },
       vcItem: [
         { label: "ON", value: "1" },
         { label: "OFF", value: "0" }
+      ],
+      memberItem: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
       ]
     };
   },
 
   methods: {
-    postPeople() {
-      let people = {
+    postClubs() {
+      let clubs = {
         //people_idはnot nullなのでsqlの設定を変えるまでは１を仮に入れておく
         //そもそもログイン機能実装までpeople_idとの紐付けは必要ないので
         people_id: 1,
-        headware: this.herdWare,
-        mainpic: this.mainPic,
-        secondpic: this.secondPic,
-        thirdpic: this.thirdPic,
-        require_rank: this.rank,
+        clubs_name: this.clubsName,
+        clubs_member: this.clubsMember,
+        clubs_headware: this.clubsHeadware,
+        require_rank: this.requireRank,
         voice_chat: this.voiceChat.value,
-        message: this.message,
-        psid: this.psid
+        message: this.message
       };
 
       this.$axios
-        .post("http://localhost:8000/api/posts", people)
+        .post("http://localhost:8000/api/clubs", clubs)
         .then(response => {
           console.log(response.data);
         })
