@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-col>
+    <v-row>
       <v-btn
         right
         fixed
@@ -19,7 +19,7 @@
         class="club-btn"
         >クラブ</v-btn
       >
-    </v-col>
+    </v-row>
 
     <v-row
       v-if="this.$store.state.postFlag.flag === 'posts'"
@@ -28,46 +28,51 @@
     >
       <v-col v-for="post in posts" :key="post.id" cols="12" sm="8" md="6">
         <v-card>
-          <v-row>
-            <v-col cols="6">
+          <v-row class="ma-0">
+            <v-col cols="7" class="pt-0 pr-0 pb-0">
               <v-card-title>
                 {{ post.psid }}
               </v-card-title>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="5" class="pa-0">
               <v-card-text>
-                <p>{{ post.created_at | dateFilter }}</p>
+                {{ post.created_at | dateFilter }}
               </v-card-text>
             </v-col>
-            <v-card-text>
+          </v-row>
+
+          <v-card-text>
+            <v-row>
               <v-chip label outlined>
                 {{ post.headware }}
               </v-chip>
-
-              <v-chip label outlined>
+              <v-chip label outlined class="mx-3">
                 <v-icon>{{ post.voice_chat | convertMicicon }}</v-icon>
               </v-chip>
-
               <v-chip label outlined>
                 {{ post.require_rank }}
               </v-chip>
+            </v-row>
 
-              <v-chip label outlined>
+            <v-row align="center" class="mt-2">
+              <v-chip label outlined class="pa-1">
                 {{ post.mainpic }}
               </v-chip>
-              <span>＞</span>
-              <v-chip label outlined>
+              <span class="title mx-1">＞</span>
+              <v-chip label outlined class="pa-1">
                 {{ post.secondpic }}
               </v-chip>
-              <span>＞</span>
-              <v-chip label outlined>
+              <span class="body-2 mx-1">＞</span>
+              <v-chip label outlined class="pa-1">
                 {{ post.thirdpic }}
               </v-chip>
-            </v-card-text>
+            </v-row>
+          </v-card-text>
 
-            <v-divider class="mx-4"></v-divider>
+          <v-divider class="mx-4"></v-divider>
 
-            <v-card-text>
+          <v-row class="ma-0">
+            <v-card-text class="px-5">
               {{ post.message }}
             </v-card-text>
           </v-row>
