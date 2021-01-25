@@ -36,7 +36,10 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $clubs = new Club;
+        $form = $request->all();
+        unset($form['_token']);
+        $clubs->fill($form)->save();
     }
 
     /**

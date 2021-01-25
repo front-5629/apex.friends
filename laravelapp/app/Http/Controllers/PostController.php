@@ -50,6 +50,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        //検索フォームの内容をquery->whereで探して返すメソッド
         // $items = Post::find($id);
         // return $items->toArray();
     }

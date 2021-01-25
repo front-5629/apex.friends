@@ -10,4 +10,14 @@ class Club extends Model
     use HasFactory;
 
     protected $table = 'clubs';
+
+    protected $fillable = [
+        'people_id',
+        'clubs_name',
+        'clubs_member',
+        'clubs_headware',
+        'require_rank',
+        'message',
+        'voice_chat'
+    ];
 }

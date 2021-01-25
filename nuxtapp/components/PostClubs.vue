@@ -34,7 +34,7 @@
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
-            :items="['ps4', 'pc']"
+            :items="['PS4', 'PC']"
             label="ハードウェア"
             v-model="clubsHeadware"
             required
@@ -52,7 +52,12 @@
           ></v-select>
         </v-col>
         <v-col cols="12" sm="12">
-          <v-textarea counter label="メッセージ（150文字）" v-model="message">
+          <v-textarea
+            counter
+            label="メッセージ（150文字）"
+            v-model="message"
+            :rules="rules"
+          >
           </v-textarea>
         </v-col>
       </v-row>
@@ -80,6 +85,7 @@ export default {
       clubsHeadware: "",
       requireRank: "",
       message: "",
+      rules: [text => text.length <= 150 || "150文字を超えています"],
       voiceChat: { label: "", value: "" },
       vcItem: [
         { label: "ON", value: "1" },
