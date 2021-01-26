@@ -31,7 +31,7 @@ class PostRequest extends FormRequest
             'thirdpic' => ['required', 'string'],
             'require_rank' => ['required', 'string'],
             'voice_chat' => ['required'],
-            'message' => ['nullable', 'string', 'max: 100'],
+            'message' => ['required', 'string', 'max: 100'],
             'psid' => ['required', 'string', 'max: 20']
         ];
     }
@@ -39,16 +39,34 @@ class PostRequest extends FormRequest
     public function attributes()
     {
         return [
-           'hoge' => 'ほげ',
+            'people_id' => 'people_id',
+            'headware' =>  'ハードウェア',
+            'mainpic' => 'キャラ優先度１',
+            'secondpic' => 'キャラ優先度２',
+            'thirdpic' => 'キャラ優先度３',
+            'require_rank' => 'ランク',
+            'voice_chat' => 'ボイスチャット',
+            'message' => 'メッセージ',
+            'psid' => 'ID'
        ];
     }
 
     public function messages()
     {
         return [
-           'hoge.required' => ':attributeは入力必須です。',
-           'hoge.min'      => ':attributeは最低10文字以上で入力してください。',
-           'hoge.max'      => ':attributeは最高20文字までしか入力できません。',
+           'people_id' => 'プログラムエラー',
+           'headware.required' =>  ':attributeは必須項目です',
+           'mainpic.required' => ':attributeは必須項目です',
+           'secondpic.required' => ':attributeは必須項目です',
+           'thirdpic.required' => ':attributeは必須項目です',
+           'require_rank.required' => ':attributeは必須項目です',
+           'voice_chat.required' => ':attributeは必須項目です',
+
+           'message.required' => ':attributeは必須項目です',
+           'message.max' => ':attributeが100文字を超えています',
+
+           'psid.required' => ':attributeは必須項目です',
+           'psid.max' => ':attributeが20文字を超えています'
        ];
     }
 }

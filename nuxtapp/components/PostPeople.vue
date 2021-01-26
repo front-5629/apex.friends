@@ -3,18 +3,25 @@
     <span class="headline ml-5">フレンド投稿</span>
     <v-container justify="center">
       <v-row>
-        <v-col cols="12" sm="6">
-          <v-text-field label="ID" v-model="psid"> </v-text-field>
+        <v-col cols="12" sm="6" class="postItem">
+          <v-text-field label="ID" v-model="psid" :rules="idRules">
+          </v-text-field>
+          <p v-if="errors['psid']" class="error-message">
+            ※{{ errors["psid"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" class="postItem">
           <v-select
             :items="['PS4', 'PC']"
             label="ハードウェア"
             v-model="herdWare"
           >
           </v-select>
+          <p v-if="errors['headware']" class="error-message">
+            ※{{ errors["headware"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" class="postItem">
           <v-select
             :items="vcItem"
             item-text="label"
@@ -23,8 +30,11 @@
             v-model="voiceChat"
             return-object
           ></v-select>
+          <p v-if="errors['voice_chat']" class="error-message">
+            ※{{ errors["voice_chat"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" class="postItem">
           <v-select
             :items="[
               'ブロンズ',
@@ -45,39 +55,56 @@
             v-model="rank"
           >
           </v-select>
+          <p v-if="errors['require_rank']" class="error-message">
+            ※{{ errors["require_rank"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="4" class="postItem">
           <v-select
             :items="picList"
             label="キャラ優先度１"
             v-model="mainPic"
           ></v-select>
+          <p v-if="errors['mainpic']" class="error-message">
+            ※{{ errors["mainpic"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="4" class="postItem">
           <v-select
             :items="picList"
             label="キャラ優先度２"
             v-model="secondPic"
           ></v-select>
+          <p v-if="errors['secondpic']" class="error-message">
+            ※{{ errors["secondpic"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="4" class="postItem">
           <v-select
             :items="picList"
             label="キャラ優先度３"
             v-model="thirdPic"
           ></v-select>
+          <p v-if="errors['thirdpic']" class="error-message">
+            ※{{ errors["thirdpic"][0] }}
+          </p>
         </v-col>
-        <v-col cols="12" sm="12">
+        <v-col cols="12" sm="12" class="postItem">
           <v-textarea
             counter
             label="メッセージ（100文字以内）"
             v-model="message"
-            :rules="rules"
+            :rules="messageRules"
           >
           </v-textarea>
+          <p v-if="errors['message']" class="error-message">
+            ※{{ errors["message"][0] }}
+          </p>
         </v-col>
+        <v-col></v-col>
       </v-row>
     </v-container>
+    <v-row class="pl-6">※全項目入力が必要です</v-row>
     <v-row justify="end" class="mr-2">
       <v-btn color="blue darken-1" text to="/" nuxt class="caption mr-2">
         閉じる
@@ -103,7 +130,9 @@ export default {
       rank: "",
       message: "",
       psid: "",
-      rules: [text => text.length <= 100 || "100文字を超えています"],
+      errors: "",
+      messageRules: [text => text.length <= 100 || "100文字を超えています"],
+      idRules: [text => text.length <= 20 || "20文字を超えています"],
       voiceChat: { label: "", value: "" },
       vcItem: [
         { label: "ON", value: "1" },
@@ -149,13 +178,23 @@ export default {
         .post("http://localhost:8000/api/posts", people)
         .then(response => {
           console.log(response.data);
+          this.$router.push("/");
         })
         .catch(error => {
-          console.log("response error", error.response);
+          this.errors = error.response.data.errors;
         });
-
-      this.$router.push("/");
     }
   }
 };
 </script>
+
+<style lang="scss">
+.error-message {
+  color: rgb(221, 7, 7);
+}
+
+.postItem {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+</style>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Club;
+use App\Http\Requests\ClubRequest;
 
 class ClubController extends Controller
 {
@@ -34,7 +35,7 @@ class ClubController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClubRequest $request)
     {
         $clubs = new Club;
         $form = $request->all();
