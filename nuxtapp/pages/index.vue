@@ -80,6 +80,8 @@
           </v-row>
         </v-card>
       </v-col>
+      <!-- 表示されない。スタイルを適用する必要あり -->
+      <Pagination :data="posts" @move-page="movePage($event)"></Pagination>
     </v-row>
 
     <v-row v-else justify="center" align="center">
@@ -128,11 +130,17 @@
 <script>
 const axios = require("axios");
 const moment = require("moment");
+import Pagination from "~/components/Pagination.vue";
 
 export default {
+  components: {
+    Pagination
+  },
+
   data() {
     return {
-      posts: {},
+      page: 1,
+      posts: [],
       clubs: {},
       scrollY: 0,
       isShow: true
@@ -140,13 +148,15 @@ export default {
   },
 
   mounted: function() {
-    this.$axios.$get("http://127.0.0.1:8000/api/posts").then(response => {
-      this.posts = response;
-    });
+    // this.$axios.$get("http://127.0.0.1:8000/api/posts").then(response => {
+    //   this.posts = response;
+    // });
 
     this.$axios.$get("http://127.0.0.1:8000/api/clubs").then(response => {
       this.clubs = response;
     });
+
+    this.getPosts();
 
     window.addEventListener("scroll", this.onScroll);
   },
@@ -172,6 +182,18 @@ export default {
   },
 
   methods: {
+    getPosts() {
+      const url = "http://127.0.0.1:8000/api/posts?page=" + this.page;
+      this.$axios
+        .$get(url)
+        .then(res => {
+          this.posts = res.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+
     viewPosts() {
       this.$store.commit("postFlag/setPost", "posts");
     },
@@ -182,6 +204,11 @@ export default {
 
     onScroll() {
       this.$set(this, "scrollY", window.pageYOffset);
+    },
+
+    movePage(page) {
+      this.page = page;
+      this.getItems();
     }
   },
 

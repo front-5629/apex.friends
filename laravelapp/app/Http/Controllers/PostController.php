@@ -15,8 +15,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return $posts->toArray();
+        // 全件取得
+        // $posts = Post::all();
+        // return $posts->toArray();
+        
+        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
+        return $posts;
     }
 
     /**
