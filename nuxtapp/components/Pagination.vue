@@ -1,40 +1,41 @@
 <template>
-  <v-container>
-    <ul class="pagination">
-      <!-- prev_page_urlが存在するなら表示 -->
-      <li class="page-item" v-if="hasPrev">
-        <a
-          class="page-link"
-          href="#"
-          @click.prevent="move(data.current_page - 1)"
-          >前へ</a
-        >
-      </li>
-      <li :class="getPageClass(page)" v-for="page in pages" :key="page">
-        <a
-          class="page-link"
-          href="#"
-          v-text="page"
-          @click.prevent="move(page)"
-        ></a>
-      </li>
-      <!-- next_page_urlが存在するなら表示 -->
-      <li class="page-item" v-if="hasNext">
-        <a
-          class="page-link"
-          href="#"
-          @click.prevent="move(data.current_page + 1)"
-          >次へ</a
-        >
-      </li>
-    </ul>
-  </v-container>
+  <v-row justify="center" class="page-btn-row">
+    <!-- prev_page_urlが存在するなら表示 -->
+    <v-btn
+      outlined
+      tile
+      v-if="hasPrev"
+      @click.prevent="move(data.current_page - 1)"
+      class="page-btn"
+      small
+    >前へ</v-btn>
+    <!-- 現在のページと±1ページを表示 -->
+    <v-btn
+      outlined
+      tile
+      v-for="page in pages"
+      :key="page"
+      v-text="page"
+      @click.prevent="move(page)"
+      :class="getPageClass(page)"
+      class="page-btn"
+      small
+    ></v-btn>
+    <!-- next_page_urlが存在するなら表示 -->
+    <v-btn
+      outlined
+      tile
+      v-if="hasNext"
+      @click.prevent="move(data.current_page + 1)"
+      class="page-btn"
+      small
+    >次へ</v-btn>
+  </v-row>
 </template>
 
 <script>
 export default {
   props: {
-    // paginate()で取得したデータ
     data: {}
   },
 
@@ -45,16 +46,17 @@ export default {
         this.$emit("move-page", page);
       }
     },
+
     isCurrentPage(page) {
       return this.data.current_page == page;
     },
+
     getPageClass(page) {
-      let classes = ["page-item"];
+      let classes = [];
 
       if (this.isCurrentPage(page)) {
         classes.push("active");
       }
-
       return classes;
     }
   },
@@ -68,11 +70,25 @@ export default {
       return this.data.next_page_url != null;
     },
 
-    // 1~last_page(存在する最後のページ)までをpages[]に代入
+    // 現在のページ±1のページを返す
     pages() {
       let pages = [];
+      let i = "";
+      let nextPage = "";
 
-      for (let i = 1; i <= this.data.last_page; i++) {
+      if (this.data.prev_page_url != null) {
+        i = this.data.current_page - 1;
+      } else {
+        i = 1;
+      }
+
+      if (this.data.next_page_url != null) {
+        nextPage = this.data.current_page + 1;
+      } else {
+        nextPage = this.data.current_page;
+      }
+
+      for (; i <= nextPage; i++) {
         pages.push(i);
       }
 
@@ -81,3 +97,16 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.active {
+  background-color: rgb(255, 193, 193);
+}
+.page-btn-row {
+  width: 100%;
+  margin-top: 6px;
+}
+.page-btn {
+  opacity: 0.7;
+}
+</style>

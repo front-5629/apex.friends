@@ -15,11 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        // 全件取得
-        // $posts = Post::all();
-        // return $posts->toArray();
-        
-        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         return $posts;
     }
 
@@ -55,7 +51,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //検索フォームの内容をquery->whereで探して返すメソッド
+        //検索フォームの内容をquery->whereで条件に合うものを返す
         // $items = Post::find($id);
         // return $items->toArray();
     }

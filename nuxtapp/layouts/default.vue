@@ -1,18 +1,17 @@
 <template>
   <v-app>
-    <v-app-bar>
+    <v-app-bar app hide-on-scroll>
+      <!-- ログイン画面への移動ボタン ログイン機能実装までCO中　-->
       <!-- <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
-      </v-btn> -->
-      <!-- ログイン画面への移動ボタン ログイン機能実装までCO中　-->
+      </v-btn>-->
+
       <v-spacer />
-      <v-toolbar-title class="app-title">
-        APEX FRIENDS
-      </v-toolbar-title>
+      <v-toolbar-title class="app-title">APEX FRIENDS</v-toolbar-title>
       <v-spacer />
-      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon color="red">mdi-menu</v-icon>
-      </v-btn> -->
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -26,17 +25,24 @@
           active-class="red--text text--accent-4"
           @click.native="right = !right"
         >
-          <v-list-item>
+          <v-list-item @click="dialog = true">
             <v-list-item-title>使い方</v-list-item-title>
           </v-list-item>
-
-          <v-list-item>
+          <v-dialog v-model="dialog">
+            <v-card>
+              <v-card-title>おっぱっぴー</v-card-title>
+              <v-card-actions>
+                <v-btn @click="dialog = false">閉じる</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <!-- <v-list-item>
             <v-list-item-title>ヘルプ</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>お問い合わせ</v-list-item-title>
-          </v-list-item>
+          </v-list-item>-->
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -54,7 +60,7 @@
           <v-btn  block depressed nuxt to="/refine_search"> 
             <v-icon size="24px">mdi-magnify</v-icon>
           </v-btn>
-        </v-col> -->
+        </v-col>-->
 
         <v-col cols="4">
           <v-btn block depressed nuxt to="/post">
@@ -70,7 +76,8 @@
 export default {
   data: () => ({
     rightDrawer: false,
-    menuGroup: null
+    menuGroup: null,
+    dialog: false
   }),
 
   watch: {
