@@ -9,43 +9,37 @@
       <v-spacer />
       <v-toolbar-title class="app-title">APEX FRIENDS</v-toolbar-title>
       <v-spacer />
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon color="red">mdi-menu</v-icon>
-      </v-btn>
+      </v-btn>-->
     </v-app-bar>
     <v-main>
       <v-container>
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" temporary fixed right>
+    <!-- navタブ実装までCO -->
+    <!-- <v-navigation-drawer v-model="rightDrawer" temporary fixed right>
       <v-list nav>
         <v-list-item-group
           v-model="menuGroup"
           active-class="red--text text--accent-4"
           @click.native="right = !right"
         >
-          <v-list-item @click="dialog = true">
+          <v-list-item>
             <v-list-item-title>使い方</v-list-item-title>
           </v-list-item>
-          <v-dialog v-model="dialog">
-            <v-card>
-              <v-card-title>おっぱっぴー</v-card-title>
-              <v-card-actions>
-                <v-btn @click="dialog = false">閉じる</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-          <!-- <v-list-item>
+
+          <v-list-item>
             <v-list-item-title>ヘルプ</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>お問い合わせ</v-list-item-title>
-          </v-list-item>-->
+          </v-list-item>
         </v-list-item-group>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer>-->
 
     <v-footer padless app>
       <v-row justify="space-around" align="center">
@@ -76,8 +70,7 @@
 export default {
   data: () => ({
     rightDrawer: false,
-    menuGroup: null,
-    dialog: false
+    menuGroup: null
   }),
 
   watch: {

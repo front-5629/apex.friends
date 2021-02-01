@@ -116,14 +116,6 @@ export default {
   },
 
   mounted: function() {
-    // this.$axios.$get("http://127.0.0.1:8000/api/posts").then(response => {
-    //   this.posts = response;
-    // });
-
-    // this.$axios.$get("http://127.0.0.1:8000/api/clubs").then(response => {
-    //   this.clubs = response;
-    // });
-
     this.getClubs();
 
     this.getPosts();
