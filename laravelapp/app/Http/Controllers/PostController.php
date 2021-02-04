@@ -51,6 +51,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        //検索機能実装までCO
         //検索フォームの内容をquery->whereで条件に合うものを返す
         // $items = Post::find($id);
         // return $items->toArray();

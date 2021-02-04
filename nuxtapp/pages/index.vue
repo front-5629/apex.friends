@@ -6,7 +6,6 @@
         <v-btn right fixed rounded @click="viewClubs" width="90px" class="club-btn">クラブ</v-btn>
       </v-row>
     </transition>
-
     <v-row
       v-if="this.$store.state.postFlag.flag === 'posts'"
       justify="center"
@@ -23,7 +22,6 @@
               <v-card-text>{{ post.created_at | dateFilter }}</v-card-text>
             </v-col>
           </v-row>
-
           <v-card-text>
             <v-row class="px-3">
               <v-chip label outlined>{{ post.headware }}</v-chip>
@@ -32,7 +30,6 @@
               </v-chip>
               <v-chip label outlined>{{ post.require_rank }}</v-chip>
             </v-row>
-
             <v-row align="center" class="px-3">
               <v-chip label outlined class="px-2 mt-2">{{ post.mainpic }}</v-chip>
               <span class="title mt-2">＞</span>
@@ -41,15 +38,12 @@
               <v-chip label outlined class="px-2 mt-2">{{ post.thirdpic }}</v-chip>
             </v-row>
           </v-card-text>
-
           <v-divider class="mx-4"></v-divider>
-
           <v-row class="ma-0">
             <v-card-text class="px-5">{{ post.message }}</v-card-text>
           </v-row>
         </v-card>
       </v-col>
-
       <Pagination :data="postItems" @move-page="movePostsPage($event)"></Pagination>
     </v-row>
 
@@ -69,18 +63,14 @@
           <v-card-text outlined>
             <v-chip-group column>
               <v-chip label outlined>{{ club.clubs_headware }}</v-chip>
-
               <v-chip label outlined>
                 <v-icon>{{ club.voice_chat | convertMicicon }}</v-icon>
               </v-chip>
-
               <v-chip label outlined>{{ club.require_rank }} 以上</v-chip>
-
               <v-chip label outlined>{{ club.clubs_member }}人</v-chip>
             </v-chip-group>
           </v-card-text>
           <v-divider class="mx-4"></v-divider>
-
           <v-row class="ma-0">
             <v-card-text class="px-5">{{ club.message }}</v-card-text>
           </v-row>
@@ -95,7 +85,7 @@
 const axios = require("axios");
 const moment = require("moment");
 import Pagination from "~/components/Pagination.vue";
-import "scroll-behavior-polyfill";
+// import "scroll-behavior-polyfill";
 
 export default {
   components: {
@@ -145,7 +135,9 @@ export default {
 
   methods: {
     getPosts() {
-      const url = "http://127.0.0.1:8000/api/posts?page=" + this.postPage;
+      // const url = "http://127.0.0.1:8000/api/posts?page=" + this.postPage;
+      const url =
+        "https://apexfriends-api.herokuapp.com/api/posts?page=" + this.postPage;
       this.$axios
         .$get(url)
         .then(res => {
@@ -158,7 +150,9 @@ export default {
     },
 
     getClubs() {
-      const url = "http://127.0.0.1:8000/api/clubs?page=" + this.clubPage;
+      // const url = "http://127.0.0.1:8000/api/clubs?page=" + this.clubPage;
+      const url =
+        "https://apexfriends-api.herokuapp.com/api/clubs?page=" + this.clubPage;
       this.$axios
         .$get(url)
         .then(res => {
@@ -219,7 +213,6 @@ export default {
   margin-right: 100px;
   z-index: 1;
 }
-
 .club-btn {
   z-index: 1;
 }

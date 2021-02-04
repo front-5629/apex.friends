@@ -15,10 +15,6 @@ class ClubController extends Controller
      */
     public function index()
     {
-        // 全件取得
-        // $clubs = Club::all();
-        // return $clubs->toArray();
-
         $clubs = Club::orderBy('created_at', 'desc')->paginate(10);
         return $clubs;
     }

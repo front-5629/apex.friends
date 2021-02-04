@@ -5,12 +5,8 @@
       <v-tabs>
         <v-tabs-slider color="red"></v-tabs-slider>
         <v-spacer />
-        <v-tab>
-          フレンド
-        </v-tab>
-        <v-tab>
-          クラブ
-        </v-tab>
+        <v-tab>フレンド</v-tab>
+        <v-tab>クラブ</v-tab>
         <v-spacer />
         <v-tab-item>
           <v-card>
@@ -43,3 +39,5 @@ export default {
   }
 };
 </script>
+
+
