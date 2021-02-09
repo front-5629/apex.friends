@@ -135,7 +135,6 @@ export default {
 
   methods: {
     getPosts() {
-      // const url = "http://127.0.0.1:8000/api/posts?page=" + this.postPage;
       const url =
         "https://apexfriends-api.herokuapp.com/api/posts?page=" + this.postPage;
       this.$axios
@@ -150,7 +149,6 @@ export default {
     },
 
     getClubs() {
-      // const url = "http://127.0.0.1:8000/api/clubs?page=" + this.clubPage;
       const url =
         "https://apexfriends-api.herokuapp.com/api/clubs?page=" + this.clubPage;
       this.$axios
