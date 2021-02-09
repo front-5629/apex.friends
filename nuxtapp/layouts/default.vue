@@ -1,18 +1,20 @@
 <template>
   <v-app>
-    <v-app-bar app hide-on-scroll>
-      <!-- ログイン画面への移動ボタン ログイン機能実装までCO中　-->
-      <!-- <v-btn icon to="/login" nuxt>
+    <header>
+      <v-app-bar app hide-on-scroll>
+        <!-- ログイン画面への移動ボタン ログイン機能実装までCO中　-->
+        <!-- <v-btn icon to="/login" nuxt>
         <v-icon color="red">mdi-login-variant</v-icon>
-      </v-btn>-->
+        </v-btn>-->
 
-      <v-spacer />
-      <v-toolbar-title class="app-title">APEX FRIENDS</v-toolbar-title>
-      <v-spacer />
-      <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+        <v-spacer />
+        <v-toolbar-title class="app-title">APEX FRIENDS</v-toolbar-title>
+        <v-spacer />
+        <!-- <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon color="red">mdi-menu</v-icon>
-      </v-btn>-->
-    </v-app-bar>
+        </v-btn>-->
+      </v-app-bar>
+    </header>
     <v-main>
       <v-container>
         <nuxt />
