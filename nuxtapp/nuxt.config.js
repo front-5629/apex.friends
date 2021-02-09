@@ -10,6 +10,10 @@ export default {
     title: "【Apex Legends】クラブ・フレンド募集掲示板 | APEX FRIENDS",
     meta: [
       { charset: "utf-8" },
+      {
+        name: "google-site-verification",
+        content: "lD9i9ovn8K1Tpl-c8GfhBlSpSt_VrOHK5NlS91hM81w"
+      },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" }
     ],
