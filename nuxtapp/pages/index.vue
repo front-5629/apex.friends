@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <p>test</p>
     <transition>
       <v-row v-show="isShow">
         <v-btn right fixed rounded @click="viewPosts" width="90px" class="friend-btn">フレンド</v-btn>
