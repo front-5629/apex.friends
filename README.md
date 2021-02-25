@@ -8,7 +8,8 @@ Frontend
 
 Backend  
 <img src="https://user-images.githubusercontent.com/66376047/109164234-88a57080-77bd-11eb-8420-21d86a953676.png" width="80px" height="80px">
-<img src="https://user-images.githubusercontent.com/66376047/109164258-8f33e800-77bd-11eb-8a98-a0374355b250.png" width="80px" height="80px">
+<img src="https://user-images.githubusercontent.com/66376047/109164258-8f33e800-77bd-11eb-8a98-a0374355b250.png" width="120px" height="80px">
+
 </div>
 
 ## Overview
