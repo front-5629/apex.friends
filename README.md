@@ -2,7 +2,7 @@
 
 <div style="text-align: center;">
 Frontend  
-![71645835-a98d4580-2d21-11ea-9693-348d12101bb4](https://user-images.githubusercontent.com/66376047/109164124-6a3f7500-77bd-11eb-8630-066ff1fc8492.png)
+![71645835-a98d4580-2d21-11ea-9693-348d12101bb4](https://user-images.githubusercontent.com/66376047/109164124-6a3f7500-77bd-11eb-8630-066ff1fc8492.png)  
 ![80292478-f645d200-8791-11ea-9a0b-57ec5a7ec487](https://user-images.githubusercontent.com/66376047/109164201-80e5cc00-77bd-11eb-9f55-860f2da26d02.png)  
 
 Backend  
