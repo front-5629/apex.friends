@@ -7,7 +7,7 @@ Frontend
 <img src="![80292478-f645d200-8791-11ea-9a0b-57ec5a7ec487](https://user-images.githubusercontent.com/66376047/109164201-80e5cc00-77bd-11eb-9f55-860f2da26d02.png) " width="5rem" height="50px">  
 
 Backend  
-<img src="![958072](https://user-images.githubusercontent.com/66376047/109164234-88a57080-77bd-11eb-8420-21d86a953676.png)" width="5rem" height="50px">
+<img src="958072.png" width="5rem" height="50px">
 <img src="![80302176-6cbef000-87e3-11ea-9643-1f4b446dfaa8](https://user-images.githubusercontent.com/66376047/109164258-8f33e800-77bd-11eb-8a98-a0374355b250.png)" width="5rem" height="50px">
 </div>
 
