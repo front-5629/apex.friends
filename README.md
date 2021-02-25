@@ -1,6 +1,6 @@
 # APEX FRIENDS
 
-<div style="text-align: center;">  
+<div align="center">  
   
 Frontend  
 <img src="https://user-images.githubusercontent.com/66376047/109164124-6a3f7500-77bd-11eb-8630-066ff1fc8492.png" width="80px" height="80px">
