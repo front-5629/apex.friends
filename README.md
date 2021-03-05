@@ -11,8 +11,8 @@ Backend
 <img src="https://user-images.githubusercontent.com/66376047/109164258-8f33e800-77bd-11eb-8a98-a0374355b250.png" width="120px" height="60px">  
 
 Test  
-<img src="https://user-images.githubusercontent.com/66376047/110118701-1ad0f880-7dfe-11eb-8d86-cc8dd02c4ca8.png" width="80px" height="80px">  
-<img src="https://user-images.githubusercontent.com/66376047/110118723-23293380-7dfe-11eb-8c8e-09d116f170eb.png" width="120px" height="60px">
+<img src="https://user-images.githubusercontent.com/66376047/110118701-1ad0f880-7dfe-11eb-8d86-cc8dd02c4ca8.png" width="80px" height="80px">
+<img src="https://user-images.githubusercontent.com/66376047/110118723-23293380-7dfe-11eb-8c8e-09d116f170eb.png" width="120px" height="80px">
 
 </div>
 
