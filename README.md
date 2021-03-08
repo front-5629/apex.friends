@@ -36,3 +36,21 @@ ApexLegendsのフレンド・クラブ募集用掲示板
 ・フロントエンドとバックエンドを分離させた開発方法  
 ・投稿画面から閲覧画面に戻った時に、さっきまで見ていたタグとページを保持（続きから見れる）  
 ・投稿画面でフレンドとクラブを切り替えても入力内容を保持
+
+## Version
+backend  
+PHP:7.4.12  
+laravel:8.12.0  
+phpunit:9.3.3  
+Node:12.16.2  
+npm:6.14.4  
+mysql:5.7.32  
+  
+frontend  
+nuxt:2.14.6  
+@vue/cli:4.5.8  
+@nuxtjs/vuetify":1.11.2  
+@vue/test-utils":1.1.0  
+babel-core:7.0.0-bridge.0  
+@nuxtjs/axios":5.12.2  
+jest:26.5.0  
