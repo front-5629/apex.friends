@@ -49,8 +49,8 @@ mysql:5.7.32
 frontend  
 nuxt:2.14.6  
 @vue/cli:4.5.8  
-@nuxtjs/vuetify":1.11.2  
-@vue/test-utils":1.1.0  
+@nuxtjs/vuetify:1.11.2  
+@vue/test-utils:1.1.0  
 babel-core:7.0.0-bridge.0  
-@nuxtjs/axios":5.12.2  
+@nuxtjs/axios:5.12.2  
 jest:26.5.0  
