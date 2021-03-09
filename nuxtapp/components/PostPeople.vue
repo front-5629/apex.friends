@@ -131,7 +131,6 @@ export default {
       };
 
       this.$axios
-        // .post("http://localhost:8000/api/posts", people)
         .post("https://apexfriends-api.herokuapp.com/api/posts", people)
         .then(response => {
           console.log(response.data);

@@ -2,8 +2,24 @@
   <v-container>
     <transition>
       <v-row v-show="isShow">
-        <v-btn right fixed rounded @click="viewPosts" width="90px" class="friend-btn">フレンド</v-btn>
-        <v-btn right fixed rounded @click="viewClubs" width="90px" class="club-btn">クラブ</v-btn>
+        <v-btn
+          right
+          fixed
+          rounded
+          @click="viewPosts"
+          width="90px"
+          class="friend-btn"
+          data-testid="posts-btn"
+        >フレンド</v-btn>
+        <v-btn
+          right
+          fixed
+          rounded
+          @click="viewClubs"
+          width="90px"
+          class="club-btn"
+          data-testid="clabs-btn"
+        >クラブ</v-btn>
       </v-row>
     </transition>
     <v-row
@@ -121,7 +137,6 @@ export default {
   // },
 
   //storeのpostの中身を取得してpostsに代入
-  //エラーでないが表示されない
   // mounted: function() {
   //   const post = this.$store.getters["post/getPost"];
   //   this.posts = post;
