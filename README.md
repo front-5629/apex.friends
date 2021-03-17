@@ -54,7 +54,7 @@ nuxt:2.14.6
 babel-core:7.0.0-bridge.0  
 @nuxtjs/axios:5.12.2  
 vuex:3.5.1  
-jest:26.5.0  
+jest:26.5.0   
 
 ## App URL
 https://apexfriends.herokuapp.com
