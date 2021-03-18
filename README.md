@@ -57,4 +57,4 @@ vuex:3.5.1
 jest:26.5.0   
 
 ## App URL
-https://apexfriends.herokuapp.com
+https://apexfriends.herokuapp.com 
